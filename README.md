@@ -14,3 +14,6 @@ Dado que ha comenzado a estudiar y trabajar, ya no tiene tiempo de realizar el h
 
 El estudiante se queja de no tener un lugar donde consultar toda la información de forma centralizada. Su principal problema va relacionado con el descubrimiento de nuevos activos. Esta parte es la que mas tiempo le llevaba debido a las operaciones que solía realizar.
 
+## Configuración:
+[Enlace a documento de configuración](./documentos_extra/docs-objetivo-0.md)
+
