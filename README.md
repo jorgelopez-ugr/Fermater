@@ -2,11 +2,9 @@
 
 ## Descripción del problema
 
-**Cliente:** Estudiante de informática que quiere leer libros técnicos más eficientemente.
+**Cliente:** Conductor que no sabe a que zonas ya no puede entrar debido a la normativa de bajas emisiones.
 
-**Contexto** Soy estudiante y hay muchos libros que me gustaría leer pero no tengo tiempo. Mi problema es que muchas veces me decanto por una lectura y me termino sintiendo decepcionado. Los libros técnicos contienen muchos conceptos y el título a menudo no es muy explicativo. Si existiera un resumen previo me ayudaría a ser mas eficiente leyendo solo aquellos que me despiertan curiosidad.
-
-Otras veces el libro es interesante pero incluye capítulos en los que trata conceptos que ya domino o que no me aportan nada. En estas ocasiones la lectura se vuelve aburrida.
+**Contexto** Soy conductor habitual en mi pueblo pero algunas veces me surge ir a la ciudad. Mi coche es antiguo y en la ciudad que visito entra la normativa de bajas emisiones el mes que viene. Mi problema es no poder localizar el límite de antemano. Puede pasar que tenga que ir por una urgencia y me multen.
 
 
 ## Configuración:
