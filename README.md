@@ -2,9 +2,9 @@
 
 ## Descripción del problema
 
-**Cliente:** Conductor que no sabe a que zonas ya no puede entrar debido a la normativa de bajas emisiones.
+**Cliente:** Agricultor que no sabe cuando cobrar su aceite.
 
-**Contexto** Soy conductor habitual en mi pueblo pero algunas veces me surge ir a la ciudad. Mi coche es antiguo y en la ciudad que visito entra la normativa de bajas emisiones el mes que viene. Mi problema es no poder localizar el límite de antemano. Puede pasar que tenga que ir por una urgencia y me multen.
+**Descripción del Problema** Como agricultor es muy importante saber cuando es buen momento para cobrar la cosecha. La ley permite cobrar lo recolectado en un plazo de 3 años desde el pesaje. Los precios, de media, suben los años de sequía y bajan los años de mucha agua. El precio va oscilando cada día y siempre queda la duda de cuando es buen momento para vender intentando maximizar beneficios.
 
 
 ## Configuración:
