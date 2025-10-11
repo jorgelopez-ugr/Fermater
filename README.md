@@ -37,6 +37,7 @@ El proyecto actualmente se encuentra en fase de consolidación. Esta pendiente d
 ### User journeys:
 [UJ001](./docs/UJ001.md)
 ### Milestones:
+[M0](./docs/M0.md)
 [M1](./docs/M1.md)
 [M2](./docs/M2.md)
 ### Enlaces a los issues:
