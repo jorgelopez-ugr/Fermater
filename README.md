@@ -42,10 +42,9 @@ El proyecto actualmente se encuentra en fase de consolidación. Está pendiente 
 [M2](./docs/M2.md)
 ### Enlaces a los issues:
 - [Issue HU001](https://github.com/jorgelopez-ugr/Fermater/issues/2)
+- [Issue HU002](https://github.com/jorgelopez-ugr/Fermater/issues/8)
 - [Issue UJ001](https://github.com/jorgelopez-ugr/Fermater/issues/6)
 - [Issue M0](https://github.com/jorgelopez-ugr/Fermater/issues/7)
 - [Issue M1](https://github.com/jorgelopez-ugr/Fermater/issues/4)
-- [Issue M2](https://github.com/jorgelopez-ugr/Fermater/issues/5)
-
 
 ## Configuración: [documentos extra](./documentos_extra/docs-objetivo-0.md)
