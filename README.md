@@ -1,6 +1,6 @@
 # Fermater
 
-## Descripción del problema y datos conocimientos básicos:
+## Descripción del problema y conocimientos básicos:
 
 Cada año los dueños y encargados de fincas destinadas a la producción de aceite se encuentran en la tesitura de cuando es un momento óptimo para proceder al cobro de lo recolectado. Cuando se recoge una cantidad de aceituna suficiente la persona designada para ello debe pesar la cosecha en una almazara o molino. Al pesarla se obtiene un recibo certificando la cantidad y la variedad de lo pesado. Se puede pesar aceituna de principalmente 3 variedades (ordenados de mayor a menor calidad).
     - Virgen extra
