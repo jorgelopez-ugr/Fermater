@@ -28,7 +28,7 @@ Puede consultarse un ejemplo de informe de precios en el [pdf de infaoliva](./do
 
 ## Descripción del proyecto en el hito actual:
 
-El proyecto actualmente se encuentra en fase de consolidación. Esta pendiente de la aprobación de los revisores y por último de JJ para poder proceder a implementarlo. Este instante corresponde a la **Etapa de desarrollo:** [M0](./docs/M0.md)
+El proyecto actualmente se encuentra en fase de consolidación. Está pendiente de la aprobación de los revisores y por último de JJ para poder proceder a implementarlo. Este instante corresponde a la **Etapa de desarrollo:** [M0](./docs/M0.md)
 
 ## Información relevante:
 
