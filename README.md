@@ -32,6 +32,10 @@ El proyecto actualmente se encuentra en fase de consolidación. Está pendiente 
 
 ## Información relevante:
 
+### Elección del lenguaje
+Para el proyecto se ha acordado y decidido escribir el código necesario usando el lenguaje JavaScript, esta decisión se ha tomado debido a su sencillez de sintaxis, muy orientada a lo que estamos acostumbrados a trabajar anteriormente. Además ofrece un amplio abanico de posibilidades con un ecosistema grande y muy trabajado. De igual forma, también presenta muchas facilidades a la hora de utilizar y crear los archivos de configuración del proyecto, así como la integración en la nube. 
+
+
 ### Historias de Usuario:
 [HU001](https://github.com/jorgelopez-ugr/Fermater/issues/2#issue-3493083132)
 ### User journeys:

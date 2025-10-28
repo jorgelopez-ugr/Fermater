@@ -1,0 +1,12 @@
+{
+    "name": "fermater",
+    "version": "1.0.0",
+    "description": "Aplicación que permite gestionar los gastos de las cosechas de aceituna y estimar el mejor momento para su venta",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": ["aceite", "oliva", "cosecha", "aceituna", "dinero"],
+    "author": "Jorge López y Gabriel Herrera",
+    "license": "GPL-3.0"
+}
