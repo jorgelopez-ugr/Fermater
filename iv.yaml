@@ -1,2 +1,2 @@
 lenguaje: JavaScript
-entidad: src/index.js
+entidad: lib/domain/Cosecha.js
