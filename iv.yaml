@@ -1,3 +1,5 @@
 lenguaje: JavaScript
 entidad: lib/domain/Cosecha.js
-automatizar: true
+automatizar: 
+  fichero: fantasma.txt
+  orden: deno
