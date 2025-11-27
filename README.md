@@ -37,6 +37,10 @@ Para el proyecto se ha acordado y decidido escribir el código necesario usando 
 
 deno check
 
+### Tests:
+
+Test,Tests
+
 ### Historias de Usuario:
 [HU001](https://github.com/jorgelopez-ugr/Fermater/issues/2#issue-3493083132)
 ### User journeys:

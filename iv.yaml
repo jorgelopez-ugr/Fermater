@@ -3,3 +3,4 @@ entidad: lib/domain/cosecha.js
 automatizar: 
   fichero: fantasma.txt
   orden: deno
+test: test/test.js
