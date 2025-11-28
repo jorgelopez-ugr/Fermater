@@ -41,6 +41,8 @@ deno check
 
 Test,Tests
 
+deno test
+
 ### Historias de Usuario:
 [HU001](https://github.com/jorgelopez-ugr/Fermater/issues/2#issue-3493083132)
 ### User journeys:
