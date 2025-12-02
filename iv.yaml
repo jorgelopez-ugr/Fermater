@@ -2,4 +2,4 @@ lenguaje: JavaScript
 entidad: lib/domain/cosecha.js
 automatizar: 
   fichero: deno.json
-  orden: deno check
+  orden: deno task check
