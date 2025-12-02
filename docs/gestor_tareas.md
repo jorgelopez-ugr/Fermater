@@ -5,6 +5,8 @@ Un gestor de tareas permite definir, organizar y ejecutar scripts para automatiz
 ## Vamos a valorar los siguientes criterios:
 - **Integración nativa con el runtime**
 
+Por la naturaleza del proyecto y la elección del gestor de tareas, es crucial que el gestor de tareas se integre de forma nativa con dicho entorno. Esto minimiza la necesidad de configuraciones adicionales y reduce las dependencias externas, lo que a su vez mejora la seguridad y el rendimiento del proyecto.
+
 # Las principales opciones son para mi runtime Deno:
 
 - **Deno Task**
