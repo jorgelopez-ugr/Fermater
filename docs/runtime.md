@@ -17,10 +17,10 @@ En el proyecto cobran mucho valor las herramientas de testing, linting y comprob
     - Requiere configuración adicional y dependencias externas para cubrir las necesidades del proyecto.
 
 - **Deno** 
-    - Herramientas integradas de testing, linting y formateo de código. -> **Herramientas integradas**
+    - Herramientas integradas de testing, linting y formateo de código.
 
 - **Bun**
-    - Herramientas integradas, pero menos que Deno. -> **Herramientas integradas**
+    - Herramientas integradas, pero menos que Deno.
 
 
 **Elección final es Deno**
