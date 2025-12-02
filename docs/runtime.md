@@ -21,7 +21,7 @@ El Runtime es el entorno donde el código JavaScript se ejecuta. Dicho entorno p
         - No está actualizado a estándares actuales y su rendimiento, pese a ser bueno, deja mucho que desear. -> **Rendimiento**
         - Falta de integración automática con herramientas. -> **Herramientas integradas**
 
-- Deno
+- **Deno**
     - Pros: 
         - Soluciona los problemas de seguridad de node. -> **Seguridad**
         - Cuenta con herramientas integradas de mucha calidad para test,lint,etc. Este aspecto lo convierte en extremadamente favorable frente a node para este proyecto. -> **Herramientas integradas**
@@ -32,7 +32,7 @@ El Runtime es el entorno donde el código JavaScript se ejecuta. Dicho entorno p
     - Contras: 
         - No es el más rápido de los 3 -> **Rendimiento**
 
-- Bun
+- **Bun**
     - Pros: 
         - Rendimiento extremadamente alto -> **Rendimiento**
         - Runtime y test runner integrados -> **Herramientas integradas**
