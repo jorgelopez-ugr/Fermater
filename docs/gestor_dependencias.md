@@ -18,7 +18,7 @@ El criterio elegido es la compatibilidad con el runtime seleccionado previamente
 **Elección final es el gestor nativo de Deno.**
 
 Motivación:
-- Flujo de trabajo ligero y eficiente mejorando mucho el rendimiento.
+- Flujo de trabajo ligero fruto de la integradción nativa.
 - Compatibilidad con el runtime total.
-- Herramientas nativas integradas y modernas.
+- Herramientas nativas integradas.
 
