@@ -12,7 +12,6 @@ En el proyecto cobran mucho valor las herramientas de testing, linting y comprob
 # Las principales opciones son:
 
 - **Node.js**
-    - Usa el ecosistema npm que está ampliamente desarrollado.
     - No cuenta con herramientas integradas de calidad para test, lint, etc.
     - Requiere configuración adicional y dependencias externas para cubrir las necesidades del proyecto.
 
@@ -27,5 +26,3 @@ En el proyecto cobran mucho valor las herramientas de testing, linting y comprob
 
 Motivación:
 - Proporciona un conjunto completo de herramientas integradas que cubren todas las necesidades del proyecto sin necesidad de configuraciones adicionales o dependencias externas.
-- Si bien Bun también ofrece herramientas integradas, un rendimiento excesivo no es necesario ni valorado en este proyecto.
-
