@@ -3,27 +3,18 @@
 Un gestor de dependencias define cómo se manejan las librerías de terceros que usa el proyecto.
 
 ## Vamos a valorar los siguientes criterios:
-- **Rendimiento**
 - **Compatibilidad con el runtime**
-- **Herramientas integradas**
+
+El criterio elegido es la compatibilidad con el runtime seleccionado previamente. Un gestor de dependencias que se integre de forma nativa con el runtime elegido minimizará la necesidad de configuraciones adiccionales.
 
 # Las principales opciones son:
 
-**Deno**
-    - Pros:
-        - Más rápido y eficiente en memoria al evitar el uso del clásico node_modules de npm.
-        - Integración total con el runtime elegido.
-        - Incluye herramientas nativas eliminando la necesidad de configuraciones externas.
+- **Deno**
+    - Integración total con el runtime elegido.
+    - Incluye herramientas nativas eliminando la necesidad de configuraciones externas.
 
-    - Contras:
-        - Ecosistema más limitado en comparación con npm.
-
-**npm**
-    - Pros:
-        - Ecosistema inmenso y probado, con una amplia variedad de paquetes disponibles.
-
-    - Contras:
-        - Instalaciones más pesadas y lentas debido al uso de node_modules y diversas dependencias.
+- **npm**
+    - La integración con Deno no es nativa y requiere configuraciones adicionales.
 
 **Elección final es el gestor nativo de Deno.**
 
