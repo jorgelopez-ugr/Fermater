@@ -1,5 +1,5 @@
 lenguaje: JavaScript
 entidad: lib/domain/cosecha.js
 automatizar: 
-  fichero: fantasma.txt
-  orden: deno
+  fichero: deno.json
+  orden: deno check
