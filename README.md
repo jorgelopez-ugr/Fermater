@@ -47,6 +47,13 @@ Justificaciones:
 - [Gestor de Tareas](./docs/gestor_tareas.md)
 - [Gestor de dependencias](./docs/gestor_dependencias.md)
 
+## Guía de comandos Deno:
+1. Ejecutar JS con deno: deno run [un archivo]
+2. Gestor de Tareas: deno task [una tarea definida en deno.json]
+3. Comprobar tipos: deno task check
+4. Testear: deno test
+5. Gestor de dependencias: [imports en el deno.json, luego se importan como nativamente en JS]
+
 
 ### Historias de Usuario:
 [HU001](https://github.com/jorgelopez-ugr/Fermater/issues/2#issue-3493083132)
