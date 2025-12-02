@@ -13,8 +13,7 @@ Por la naturaleza del proyecto y la elección del gestor de tareas, es crucial q
     - Totalmente integrado en el runtime de Deno a través del fichero deno.json. No requiere dependencias externas.
 
 - **npm Scripts**
-    - Puede integrarse con deno pero no es nativo.
-    - Requiere introducción de herramientas no nativas al ecosistema Deno.
+    - Deno permite ejecutar scripts de npm y trabajar con package.json, pero no es una integración nativa.
 
 **Elección final es Deno Task.**
 
