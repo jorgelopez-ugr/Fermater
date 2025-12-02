@@ -2,50 +2,30 @@
 
 El Runtime es el entorno donde el código JavaScript se ejecuta. Dicho entorno proporciona todo lo necesario para que el código JavaScript se ejecute y aporte valor.
 
-## Vamos a valorar los siguientes criterios:
-- **Rendimiento**
+## Criterio de selección:
 - **Herramientas integradas**
-- **Seguridad**:
-- **Compatibilidad con estándares**
-- **Facilidad de despliegue**
-- **Madurez del proyecto**
+
+Debido a la naturaleza del proyecto, es fundamental que el runtime cuente con herramientas integradas.
+
+En el proyecto cobran mucho valor las herramientas de testing, linting y comprobación de formato de código. Un runtime que integre estas herramientas de forma nativa simplifica el flujo de trabajo, reduce la necesidad de configuraciones adicionales y minimiza las dependencias externas, lo que a su vez mejora la seguridad y el rendimiento del proyecto.
 
 # Las principales opciones son:
 
 - **Node.js**
-    - Pros: 
-        - Usa el ecosistema npm que está ampliamente desarrollado. -> **Madurez del proyecto**
-        - Muy compatible con los estándares -> **Compatibilidad con estándares**
-    - Contras: 
-        - Es un estándar antiguo y como tal cuenta con poca seguridad. -> **Seguridad**
-        - No está actualizado a estándares actuales y su rendimiento, pese a ser bueno, deja mucho que desear. -> **Rendimiento**
-        - Falta de integración automática con herramientas. -> **Herramientas integradas**
+    - Usa el ecosistema npm que está ampliamente desarrollado.
+    - No cuenta con herramientas integradas de calidad para test, lint, etc.
+    - Requiere configuración adicional y dependencias externas para cubrir las necesidades del proyecto.
 
-- **Deno**
-    - Pros: 
-        - Soluciona los problemas de seguridad de node. -> **Seguridad**
-        - Cuenta con herramientas integradas de mucha calidad para test,lint,etc. Este aspecto lo convierte en extremadamente favorable frente a node para este proyecto. -> **Herramientas integradas**
-        - También cuenta con compatibilidad con npm. -> **Compatibilidad con estándares**
-        - Cuenta con despliegue sencillo -> comando Deno Deploy. -> **Facilidad de despliegue**
-        - Proyecto consolidado -> **Madurez del proyecto**
-        - Supera con creces el rendimiento de Node.js -> **Rendimiento**
-    - Contras: 
-        - No es el más rápido de los 3 -> **Rendimiento**
+- **Deno** 
+    - Herramientas integradas de testing, linting y formateo de código. -> **Herramientas integradas**
 
 - **Bun**
-    - Pros: 
-        - Rendimiento extremadamente alto -> **Rendimiento**
-        - Runtime y test runner integrados -> **Herramientas integradas**
-        - Compatible con npm. -> **Compatibilidad con estándares**
-    - Contras: 
-        - Proyecto muy nuevo y poco consolidado aun. -> **Madurez del proyecto**
+    - Herramientas integradas, pero menos que Deno. -> **Herramientas integradas**
 
 
-**Elección final es Deno por ser el más balanceado.**
+**Elección final es Deno**
 
 Motivación:
-- Implementa seguridad por defecto a diferencia de Node.js (Deno nace como solución a los problemas implícitos de node.js) 
-- Está perfectamente consolidado y alineado con los estándares Web.
-- Su tooling nativo es muy potente y cumple con lo que necesita este proyecto.
-- Es compatible con el ecosistema de npm.
+- Proporciona un conjunto completo de herramientas integradas que cubren todas las necesidades del proyecto sin necesidad de configuraciones adicionales o dependencias externas.
+- Si bien Bun también ofrece herramientas integradas, un rendimiento excesivo no es necesario ni valorado en este proyecto.
 
