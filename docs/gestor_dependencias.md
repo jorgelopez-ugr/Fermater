@@ -11,7 +11,6 @@ El criterio elegido es la compatibilidad con el runtime seleccionado previamente
 
 - **Deno**
     - Integración total con el runtime elegido.
-    - Incluye herramientas nativas eliminando la necesidad de configuraciones externas.
 
 - **npm**
     - La integración con Deno no es nativa y requiere configuraciones adicionales.
