@@ -35,6 +35,25 @@ El proyecto actualmente se encuentra en fase de consolidación. Está pendiente 
 ### Elección del lenguaje
 Para el proyecto se ha acordado y decidido escribir el código necesario usando el lenguaje JavaScript, esta decisión se ha tomado debido a su sencillez de sintaxis, muy orientada a lo que estamos acostumbrados a trabajar anteriormente. Además ofrece un amplio abanico de posibilidades con un ecosistema grande y muy trabajado. De igual forma, también presenta muchas facilidades a la hora de utilizar y crear los archivos de configuración del proyecto, así como la integración en la nube. 
 
+## Gestores Utilizados:
+
+Por lo mencionado en los archivos de justificación se ha optado por los siguientes gestores:
+1. Deno como Runtime.
+2. Deno task como gestor de tareas.
+3. Deno como gestor de dependencias gracias a su implementación nativa en el runtime.
+
+Justificaciones: 
+- [Runtime](./docs/runtime.md)
+- [Gestor de Tareas](./docs/gestor_tareas.md)
+- [Gestor de dependencias](./docs/gestor_dependencias.md)
+
+## Guía de comandos Deno:
+1. Ejecutar JS con deno: deno run [un archivo]
+2. Gestor de Tareas: deno task [una tarea definida en deno.json]
+3. Comprobar tipos: deno task check
+4. Testear: deno test
+5. Gestor de dependencias: [imports en el deno.json, luego se importan como nativamente en JS]
+
 
 ### Historias de Usuario:
 [HU001](https://github.com/jorgelopez-ugr/Fermater/issues/2#issue-3493083132)

@@ -1,2 +1,5 @@
 lenguaje: JavaScript
 entidad: lib/domain/Precios.js
+automatizar: 
+  fichero: deno.json
+  orden: deno task check
