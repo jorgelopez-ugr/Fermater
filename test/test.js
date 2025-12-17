@@ -168,3 +168,37 @@ Deno.test("extraerPrecioDeColumna - vacío completo lanza error", () => {
         "Input no puede estar vacío"
     );
 });
+
+// ===============================================
+// = Tests para parsearPrecio                    =
+// ===============================================
+
+Deno.test("parsearPrecio - caso óptimo", () => {
+    const input = "4.450 €";
+    const esperado = 4.450;
+    const resultado = parsearPrecio(input);
+    assertStrictEquals(resultado, esperado);
+});
+
+Deno.test("parsearPrecio - sin decimales", () => {
+    const input = "4 €";
+    const esperado = 4.0;
+    const resultado = parsearPrecio(input);
+    assertStrictEquals(resultado, esperado);
+});
+
+Deno.test("parsearPrecio - tipo inválido lanza error", () => {
+    const input = "alskdja";
+    assertThrows(
+        () => parsearPrecio(input),
+        Error,
+        "número válido"
+    );
+});
+
+Deno.test("parsearPrecio - sin símbolo euro", () => {
+    const input = "1.111";
+    const esperado = 1.111;
+    const resultado = parsearPrecio(input);
+    assertStrictEquals(resultado, esperado);
+});
