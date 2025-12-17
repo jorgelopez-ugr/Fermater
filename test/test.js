@@ -202,3 +202,46 @@ Deno.test("parsearPrecio - sin símbolo euro", () => {
     const resultado = parsearPrecio(input);
     assertStrictEquals(resultado, esperado);
 });
+
+// ===============================================
+// = Tests para esFilaFecha                      =
+// ===============================================
+
+Deno.test("esFilaFecha - caso óptimo", () => {
+    const input = '<tr class="table-secondary"><td colspan="3" class="pt-1 pb-1"><strong>04-12-2025</strong></td></tr>';
+    const esperado = true;
+    const resultado = esFilaFecha(input);
+    assertStrictEquals(resultado, esperado);
+});
+
+Deno.test("esFilaFecha - negativo", () => {
+    const input = '<tr><td colspan="3" class="pt-1 pb-1"><strong>04-12-2025</strong></td></tr>';
+    const esperado = false;
+    const resultado = esFilaFecha(input);
+    assertStrictEquals(resultado, esperado);
+});
+
+Deno.test("esFilaFecha - tipo incorrecto lanza error", () => {
+    const input = 5;
+    assertThrows(
+        () => esFilaFecha(input),
+        Error,
+        "Input debe ser"
+    );
+});
+
+Deno.test("esFilaFecha - vacío completo lanza error", () => {
+    const input = '';
+    assertThrows(
+        () => esFilaFecha(input),
+        Error,
+        "Input no puede estar vacío"
+    );
+});
+
+Deno.test("esFilaFecha - vacío parcial", () => {
+    const input = '<tr class="table-ndary"><td colspan="3" class="pt-1 pb-1"><strong>fecha</strong></td></tr>';
+    const esperado = false;
+    const resultado = esFilaFecha(input);
+    assertStrictEquals(resultado, esperado);
+});
