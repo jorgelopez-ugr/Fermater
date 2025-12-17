@@ -7,9 +7,7 @@ import {
 
 import { 
     assertEquals,
-    assertStrictEquals,
     assertThrows,
-    assert
 } from "@std/assert";
 
 // =============================================
