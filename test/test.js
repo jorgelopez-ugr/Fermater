@@ -245,3 +245,34 @@ Deno.test("esFilaFecha - vacío parcial", () => {
     const resultado = esFilaFecha(input);
     assertStrictEquals(resultado, esperado);
 });
+
+// ================================================
+// = Tests para obtenerColumnasDeFila             =
+// ================================================
+
+Deno.test("obtenerColumnasDeFila - caso óptimo", () => {
+    const input = '<tr><td><strong>AOVE - Noviembre</strong></td><td align="center">Picual</td><td align="right"><strong>4.450 €</strong></td></tr>';
+    const esperado = [
+        '<strong>AOVE - Noviembre</strong></td>',
+        'Picual</td>',
+        '<strong>4.450 €</strong></td></tr>'
+    ];
+    const resultado = obtenerColumnasDeFila(input);
+    assertEquals(resultado, esperado);
+});
+
+Deno.test("obtenerColumnasDeFila - vacío completo lanza error", () => {
+    const input = '';
+    assertThrows(
+        () => obtenerColumnasDeFila(input),
+        Error,
+        "Input no puede estar vacío"
+    );
+});
+
+Deno.test("obtenerColumnasDeFila - vacío parcial", () => {
+    const input = '<tr></tr>';
+    const esperado = [];
+    const resultado = obtenerColumnasDeFila(input);
+    assertEquals(resultado, esperado);
+});
