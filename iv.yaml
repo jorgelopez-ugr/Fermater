@@ -5,4 +5,4 @@ automatizar:
   orden: deno task check
   test: test/test.js
   comando: deno test --allow-read
-  descripcion: Ejecuta los tests con Deno
+  descripcion: Ejecuta los tests con deno

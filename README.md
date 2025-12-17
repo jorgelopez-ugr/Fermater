@@ -59,7 +59,7 @@ Justificaciones:
 
 Pueden consultarse las decisiones sobre las herramientas de test seleccionadas en el siguiente archivo: [docs/tests.md](./docs/tests.md)
 
-# Guía de uso para los Tests del Scraper
+# Guía de uso para los Tests
 
 ## Ejecutar tests
 
