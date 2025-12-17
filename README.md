@@ -57,7 +57,7 @@ Justificaciones:
 
 ### Tests:
 
-Test,Tests
+Pueden consultarse las decisiones sobre las herramientas de test seleccionadas en el siguiente archivo: [docs/tests.md](./docs/tests.md)
 
 deno test
 
