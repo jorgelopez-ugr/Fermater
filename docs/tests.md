@@ -38,14 +38,14 @@ Eso podemos dividirlo en 2 partes:
     - Sintaxis similar a las anteriores. Neceistas descargar paquetes y archivos de configuracion como el vitest.config.ts. Para nada es una integración nativa con Deno.
 
 - **Deno Assertions**
-    [link](https://docs.deno.com/runtime/reference/std/assert/)
     - Tras ver las anteriores, para esta no es necesario añadir nada extra. Viene integrada de forma nativa con Deno.
     - No necesita más paquetes ni configuraciones adicionales.
     - Sin duda alguna la mejor opción para este proyecto en base a la integración nativa con Deno.
-    - La biblioteca que importamos es `std/assert` 
-        - Link a la documentación oficial: [link](https://docs.deno.com/runtime/reference/std/assert/)
 
 **Elección final es Deno Assertions.**
+
+- La biblioteca que usaremos es `std/assert` 
+- Link a la documentación oficial de la biblioteca: [link](https://docs.deno.com/runtime/reference/std/assert/)
 
 # 2. Framework de tests:
 
