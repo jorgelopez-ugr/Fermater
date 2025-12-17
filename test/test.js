@@ -134,3 +134,37 @@ Deno.test("extraerVariedadDeColumna - variedad inválida lanza error", () => {
         "no es válida"
     );
 });
+
+// ==============================================
+// = Tests para extraerPrecioDeColumna          =
+// ==============================================
+
+Deno.test("extraerPrecioDeColumna - caso óptimo", () => {
+    const input = '<strong>4.450 €</strong></td>';
+    const esperado = "4.450 €";
+    const resultado = extraerPrecioDeColumna(input);
+    assertEquals(resultado, esperado);
+});
+
+Deno.test("extraerPrecioDeColumna - con espacios", () => {
+    const input = '  <td align="right"><strong>  3.750 €  </strong></td>  ';
+    const esperado = "3.750 €";
+    const resultado = extraerPrecioDeColumna(input);
+    assertEquals(resultado, esperado);
+});
+
+Deno.test("extraerPrecioDeColumna - con ruido", () => {
+    const input = '  <td align="right"><strong>asdasd</strong></td>  ';
+    const esperado = "asdasd";
+    const resultado = extraerPrecioDeColumna(input);
+    assertEquals(resultado, esperado);
+});
+
+Deno.test("extraerPrecioDeColumna - vacío completo lanza error", () => {
+    const input = '';
+    assertThrows(
+        () => extraerPrecioDeColumna(input),
+        Error,
+        "Input no puede estar vacío"
+    );
+});
