@@ -42,6 +42,8 @@ Eso podemos dividirlo en 2 partes:
     - Tras ver las anteriores, para esta no es necesario añadir nada extra. Viene integrada de forma nativa con Deno.
     - No necesita más paquetes ni configuraciones adicionales.
     - Sin duda alguna la mejor opción para este proyecto en base a la integración nativa con Deno.
+    - La biblioteca que importamos es `std/assert` 
+        - Link a la documentación oficial: [link](https://docs.deno.com/runtime/reference/std/assert/)
 
 **Elección final es Deno Assertions.**
 
