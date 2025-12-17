@@ -59,7 +59,57 @@ Justificaciones:
 
 Pueden consultarse las decisiones sobre las herramientas de test seleccionadas en el siguiente archivo: [docs/tests.md](./docs/tests.md)
 
+# Guía de uso para los Tests del Scraper
+
+## Ejecutar tests
+
+### Ejecutar todos los tests
+```bash
 deno test
+# o usando el task definido en deno.json
+deno task test
+```
+
+### Filtrar tests por nombre
+```bash
+# Ejecutar solo tests de limpiarHTML
+deno test --filter "limpiarHTML"
+
+# Ejecutar solo tests de myOwnParser
+deno test --filter "myOwnParser"
+
+# Ejecutar solo tests de parsearPrecio
+deno test --filter "parsearPrecio"
+
+# Usar regex para filtrar (por ejemplo, todos los que lanzan error)
+deno test --filter "/error/"
+```
+
+## Estructura de los tests
+
+Los tests están organizados por función:
+
+- **limpiarHTML** (6 tests): Limpieza de etiquetas HTML
+- **extraerFechaDeFila** (4 tests): Extracción de fechas
+- **extraerVariedadDeColumna** (3 tests): Extracción de variedades
+- **extraerPrecioDeColumna** (3 tests): Extracción de precios (texto)
+- **parsearPrecio** (4 tests): Conversión de string a número
+- **esFilaFecha** (5 tests): Identificación de filas con fecha
+- **obtenerColumnasDeFila** (3 tests): Separación de columnas
+- **myOwnParser** (6 tests): Test de integración completo
+
+**Total: 34 tests**
+
+## Los 6 Tests atómicos que componen la prueba de **myOwnParser**
+
+Los 6 tests de **myOwnParser** verifican paso a paso que el parser completo funcione:
+
+1. Es objeto válido (FechasPrecios con Map)
+2. Tiene una fecha
+3. La fecha es correcta ("04-12-2025")
+4. Tiene cuatro variedades
+5. Los nombres de las variedades son correctos
+6. Los precios son correctos
 
 ### Historias de Usuario:
 [HU001](https://github.com/jorgelopez-ugr/Fermater/issues/2#issue-3493083132)
