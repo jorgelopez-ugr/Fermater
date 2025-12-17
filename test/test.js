@@ -276,3 +276,64 @@ Deno.test("obtenerColumnasDeFila - vacío parcial", () => {
     const resultado = obtenerColumnasDeFila(input);
     assertEquals(resultado, esperado);
 });
+
+// ================================================
+// = Tests para myOwnParser - Tests atómicos      =
+// ================================================
+
+Deno.test("myOwnParser - es objeto válido", () => {
+    const resultado = myOwnParser(htmlInputSample);
+    assert(resultado && resultado.listaPrecios instanceof Map);
+});
+
+Deno.test("myOwnParser - tiene una fecha", () => {
+    const resultado = myOwnParser(htmlInputSample);
+    const esperado = 1;
+    const numFechas = resultado.listaPrecios.size;
+    assertStrictEquals(numFechas, esperado);
+});
+
+Deno.test("myOwnParser - fecha correcta", () => {
+    const resultado = myOwnParser(htmlInputSample);
+    const fechaEsperada = "04-12-2025";
+    assert(resultado.listaPrecios.has(fechaEsperada));
+});
+
+Deno.test("myOwnParser - tiene cuatro variedades", () => {
+    const resultado = myOwnParser(htmlInputSample);
+    const fechaEsperada = "04-12-2025";
+    const variedades = resultado.listaPrecios.get(fechaEsperada);
+    const esperado = 4;
+    const numVariedades = variedades ? variedades.length : 0;
+    assertStrictEquals(numVariedades, esperado);
+});
+
+Deno.test("myOwnParser - nombres de variedades correctos", () => {
+    const resultado = myOwnParser(htmlInputSample);
+    const fechaEsperada = "04-12-2025";
+    const variedades = resultado.listaPrecios.get(fechaEsperada);
+    
+    assert(variedades && variedades.length === 4);
+    
+    const nombresEsperados = [
+        "AOVE - Noviembre",
+        "AOVE - Diciembre",
+        "Aceite de oliva virgen",
+        "Aceite de oliva lampante"
+    ];
+    
+    const nombresObtenidos = variedades.map(v => v.variedad);
+    assertEquals(nombresObtenidos, nombresEsperados);
+});
+
+Deno.test("myOwnParser - precios correctos", () => {
+    const resultado = myOwnParser(htmlInputSample);
+    const fechaEsperada = "04-12-2025";
+    const variedades = resultado.listaPrecios.get(fechaEsperada);
+    
+    assert(variedades && variedades.length === 4);
+    
+    const preciosEsperados = [4.450, 4.100, 3.750, 3.667];
+    const preciosObtenidos = variedades.map(v => v.valor);
+    assertEquals(preciosObtenidos, preciosEsperados);
+});
