@@ -107,3 +107,30 @@ Deno.test("extraerFechaDeFila - vacío completo lanza error", () => {
         "Input no puede estar vacío"
     );
 });
+
+// =============================================
+// = Tests para extraerVariedadDeColumna       =
+// =============================================
+
+Deno.test("extraerVariedadDeColumna - caso óptimo", () => {
+    const input = "<strong>AOVE - Diciembre</strong></td>";
+    const esperado = "AOVE - Diciembre";
+    const resultado = extraerVariedadDeColumna(input);
+    assertEquals(resultado, esperado);
+});
+
+Deno.test("extraerVariedadDeColumna - con espacios", () => {
+    const input = "  <td><strong>  Aceite de oliva lampante  </strong></td>  ";
+    const esperado = "Aceite de oliva lampante";
+    const resultado = extraerVariedadDeColumna(input);
+    assertEquals(resultado, esperado);
+});
+
+Deno.test("extraerVariedadDeColumna - variedad inválida lanza error", () => {
+    const input = "  <td><strong>jasdjkashd</strong></td>  ";
+    assertThrows(
+        () => extraerVariedadDeColumna(input),
+        Error,
+        "no es válida"
+    );
+});
