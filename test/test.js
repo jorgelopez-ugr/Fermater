@@ -3,11 +3,13 @@
 
 import { 
     extraerFechaDeFila,
-} from "../lib/domain/Scraper.js";
+} from "../lib/domain/scraper.js";
 
 import { 
     assertEquals,
+    assertStrictEquals,
     assertThrows,
+    assert
 } from "@std/assert";
 
 // =============================================
@@ -26,7 +28,7 @@ Deno.test("extraerFechaDeFila - sin fecha lanza error", () => {
     assertThrows(
         () => extraerFechaDeFila(input),
         Error,
-        "no fecha valida"
+        "No se encontró una fecha válida en " + input + ", error de formato."
     );
 });
 
@@ -42,6 +44,15 @@ Deno.test("extraerFechaDeFila - vacío completo lanza error", () => {
     assertThrows(
         () => extraerFechaDeFila(input),
         Error,
-        "Input no puede estar vacío"
+        "Se ha introducido un " + input + " que no es correcto porque tras limpiar espacios está vacío"
+    );
+});
+
+Deno.test("extraerFechaDeFila - fecha imposible", () => {
+    const input = '<td colspan="3" class="pt-1 pb-1"><strong>00-00-0000</strong></td>';
+    assertThrows(
+        () => extraerFechaDeFila(input),
+        Error,
+        "no es válido. Debe estar entre"
     );
 });
