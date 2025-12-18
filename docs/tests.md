@@ -24,21 +24,8 @@ Eso podemos dividirlo en 2 partes:
     - Assertion Styles de Chai: [link](https://www.chaijs.com/guide/styles/)
     - Necesitas extensiones e instalar paquetes nuevos con npm para poder usar la API assert. Definitivamente no es una integración nativa con Deno.
 
-- **Jest**
-    [link](https://jestjs.io/)
-    - Usa jest expect: [link](https://jestjs.io/docs/expect)
-    - Concretamente nos serían muy utiles los marchers: [link](https://jestjs.io/docs/expect#matchers)
-    - Aunque nos sirve Jest será mencionado en el apartado de framework de tests.
-    - Si bien es muy extensa la integración con Deno no es ni de lejos nativa. Neceistas descargar paquetes extra.
-
-- **Vitest**
-    [link](https://vitest.dev/)
-    - Tiene una extension para aserciones: [link](https://vitest.dev/api/assert.html#assert-1)
-    - Al igual que Jest, aunque nos sirve Vitest será mencionado en el apartado de framework de tests.
-    - Sintaxis similar a las anteriores. Neceistas descargar paquetes y archivos de configuracion como el vitest.config.ts. Para nada es una integración nativa con Deno.
-
 - **Deno Assertions**
-    - Tras ver las anteriores, para esta no es necesario añadir nada extra. Viene integrada de forma nativa con Deno.
+    - Para esta no es necesario añadir nada extra. Viene integrada de forma nativa con Deno.
     - No necesita más paquetes ni configuraciones adicionales.
     - Sin duda alguna la mejor opción para este proyecto en base a la integración nativa con Deno.
 
@@ -51,13 +38,13 @@ Eso podemos dividirlo en 2 partes:
 
 - **Jest**
     [link](https://jestjs.io/)
-    - Más puramente un framework de tests (aunque valga para aserciones también).
+    [Status Sink Advisor Jest](https://snyk.io/advisor/npm-package/jest)
     - Necesita de archivo de configuración extra para configuraciones personalizadas: [link](https://jestjs.io/docs/getting-started#additional-configuration)
     - Necesita configuraciones extra también si lo usamos con babel: [link](https://jestjs.io/docs/getting-started#using-babel)  
     - En general nos va a requerir descargar paquetes adicionales y archivos de condiguración custom si realmente queremos sacarle partido. No es una integración nativa con Deno.
 - **Vitest**
     [link](https://vitest.dev/)
-    - Framework de tests muy completo (igual que jest, es más framework de test que biblioteca de aserciones).
+    [Status Sink Advisor Vitest](https://snyk.io/advisor/npm-package/vitest)
     - Necesita archivo de configuración extra: [link](https://vitest.dev/config/).
     - Necesita descargar paquetes adicionales para su instalación y uso.
     - No es una integración nativa con Deno.
@@ -75,4 +62,5 @@ Eso podemos dividirlo en 2 partes:
 Por lo mencionado en el guión, la opción más lógica es usar las herramientas de CLI nativas de Deno.
 - **Deno CLI**
     [link](https://docs.deno.com/runtime/reference/cli/test/)
+    [CLI Reference Guide](https://docs.deno.com/runtime/reference/cli/)
     - Integración total y transparente con el runtime elegido.
