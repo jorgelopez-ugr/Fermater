@@ -2,9 +2,9 @@
 
 Para el desarrollo del objetivo se precisa decidir las sigueintes herramientas de tests:
 
-1. **Aserciones:**
-2. **Test runner:**
-3. **Herramientas de CLI:**
+1. **Aserciones**
+2. **Test runner**
+3. **Herramientas de CLI**
 
 El criterio elegido es la **integración nativa con el runtime seleccionado** que en este caso es Deno. Un framework de tests que se integre de forma nativa con el runtime elegido minimizará la necesidad de configuraciones adicionales y, más importante, de instalar paquetes extra por todo lo que ello conlleva.
 
@@ -12,8 +12,8 @@ Si se usa un ecosistema de muchos elementos mal integrados entre ellos al final 
 
 Por ello el criterio de selección es claro: **integración nativa con Deno**.
 Eso podemos dividirlo en 2 partes:
-    1. **No paquetes extras**.
-    2. **No archivos de configuración adicionales**.
+    1. **Que no requieran archivos de configuración adicionales**.
+    2. **Prioridad a Paquetes reconocidos y auditados por el equipo de deno**
 
 ## Análisis de opciones:
 
@@ -24,7 +24,7 @@ Eso podemos dividirlo en 2 partes:
     - Assertion Styles de Chai: [link](https://www.chaijs.com/guide/styles/)
     - Necesitas extensiones e instalar paquetes nuevos con npm para poder usar la API assert. Definitivamente no es una integración nativa con Deno.
 
-- **Deno Assertions**
+- **Paquete std/assert de jsr auditado por deno**
     - Para esta no es necesario añadir nada extra. Viene integrada de forma nativa con Deno.
     - No necesita más paquetes ni configuraciones adicionales.
     - Sin duda alguna la mejor opción para este proyecto en base a la integración nativa con Deno.
