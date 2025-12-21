@@ -24,7 +24,7 @@ Eso podemos dividirlo en 2 partes:
     - Assertion Styles de Chai: [link](https://www.chaijs.com/guide/styles/)
     - Necesitas extensiones e instalar paquetes nuevos con npm para poder usar la API assert. Definitivamente no es una integración nativa con Deno.
 
-- **Paquete std/assert de jsr auditado por deno**
+- **Paquete @std/assert de jsr auditado por deno**
     - Para esta no es necesario añadir nada extra. Viene integrada de forma nativa con Deno.
     - No necesita más paquetes ni configuraciones adicionales.
     - Sin duda alguna la mejor opción para este proyecto en base a la integración nativa con Deno.
