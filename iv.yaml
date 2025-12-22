@@ -3,5 +3,4 @@ entidad: lib/domain/precios.js
 automatizar: 
   fichero: deno.json
   orden: deno task check
-  test: test/test.js
-  comando: deno test
+test: test/test.js
