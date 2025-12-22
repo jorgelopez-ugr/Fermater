@@ -54,6 +54,11 @@ Justificaciones:
 4. Testear: deno test
 5. Gestor de dependencias: [imports en el deno.json, luego se importan como nativamente en JS]
 
+```bash
+deno task check check
+deno task check test
+test
+```
 
 ### Tests:
 
