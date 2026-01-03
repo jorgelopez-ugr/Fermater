@@ -95,3 +95,38 @@ deno test --filter "<nombre>"
 - [Issue M1](https://github.com/jorgelopez-ugr/Fermater/issues/4)
 
 ## Configuración: [documentos extra](./documentos_extra/docs-objetivo-0.md)
+
+
+
+keep an eye:
+
+criterios:
+- velocidad -> tiempo en arrancar el contenedor
+- velocidad en correr los tests -> una vez arrancado el contenedor
+- tamaño imagen -> una vez creada la base cuanto pesa
+- tamaño del contenedor generado -> distintas imagenes base misma instrumentacion deno
+- seguridad -> que tan seguro es el entorno generado -> mirar en synk, dockerhub
+- las imagenes son para test, deben tener contexto de test e infraestructura de test.
+- Para la infraestructura de test:
+    - Definir un usuario sin privilegios
+    - Tienes que asumir que cuando lanzas el contenedor no va a tener permisos de escritura sobre el directorio que tienes mapeado del local al contenedor.
+    - esto se debe a que cuando lo lancemos en GH petará si escribirmos en el directorio que vayamos a montar-> ASUMIR QUE ES SOLO LECTURA
+    - dentro del contenedor si puedes escribir
+    - proteger el despliegue de contenedores con un nginx
+
+- Gestores de versiones -> decidir de antemano que version del lenguaje es la que se va a usar -> importante a la hora de elegir la imagen base
+- imagenes se construyen por capas -> optimizar las capas -> agrupar instrucciones en el dockerfile
+- imagenes puede ser:
+    - la oficial
+    - usar un SO e instalarle deno
+    - las extraoficiales pero oficiales en si
+    - empresas dedicadas a crear imagenes
+    - un menda que sepa mucho y haya hecho una imagen (no recomendable)
+- tags para numerar versiones
+
+[denoland](https://hub.docker.com/r/denoland/deno)
+[docu deno docker](https://docs.deno.com/runtime/reference/docker/)
+[POC docker deno oficial](https://docs.deno.com/examples/deploying_deno_with_docker/)
+[articulo interesante](https://geshan.com.np/blog/2024/07/deno-docker/)
+[alpine](https://hub.docker.com/_/alpine)
+[debian slim]()
