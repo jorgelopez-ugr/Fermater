@@ -21,4 +21,15 @@ Referencias a denoland:
 - [Dockerhub](https://hub.docker.com/r/denoland/deno)
 - [Docu oficial de deno](https://docs.deno.com/runtime/reference/docker/)
 
+## Imagenes base sometidas al benchmark:
+
+1. denoland/deno:latest
+2. denoland/deno:alpine
+3. denoland/deno:ubuntu
+4. alpine:latest + instalación manual de deno
+5. debian:slim + instalación manual de deno
+6. ubuntu:minimal + instalación manual de deno
+
+## Fases de benchmarking:
+
 
