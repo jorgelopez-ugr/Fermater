@@ -15,13 +15,21 @@ Por lo comentado en clase se han decidido tomar los siguientes criterios para se
 
 Dichos criterios sedan medidos numéricamente a fin de obtener una comparativa objetiva entre las diferentes imagenes base. Se busca quedarse con aquella que ofrezca la más óptima combinación de los distintos criterios.
 
+## Imagenes base sometidas al benchmark:
+
 Dado que deno ya tiene denoland que es la imagen oficial distribuida y auditada por los desarrolladores de deno vamos a tomar esta como referencia para comparar contra ella el resto de imagenes construidas. Dicho de otra forma, el rendimiento que obtenga denoland va a ser siempre 1 en puntuación de nuestro benchmark. El resto de casos se compararán contra este valor obteniendo porcentajes y puntuación relativa referente a denoland.
 
 Referencias a denoland:
 - [Dockerhub](https://hub.docker.com/r/denoland/deno)
 - [Docu oficial de deno](https://docs.deno.com/runtime/reference/docker/)
 
-## Imagenes base sometidas al benchmark:
+Denoland ofrece varias versiones de su imagen oficial. La default esta construida sobre debian slim. Compararemos también las versiones sobre alpine y ubuntu para ver si ofrecen mejor rendimiento en base a los criterios de nuestra decisión.
+
+Por otra parte se proponen otros 3 casos. Constan de un sistema operativo base sobre el que instalaremos manualmente como una capa del Doclerfile la version estable de deno que decidamos usar en el proyecto. Probaremos alpine, debian slim y ubuntu minimal como bases para las instalaciones manuales.
+
+No se tendrán en cuenta imágenes extraoficiales por no poder garantizarse la seguridad de las mismas. No se contemplan imágenes no mínimas por ser de gran importancia el peso de la imagen final y del contenedor. Se pretende usar la última versión y más recientemente actualizada de cada imagen base para mejorar la seguridad. No se contemplan imágenes desactualizadas (lo tomaremos como aquellas que lleven 3 meses o más sin actualizaciones). 
+
+Por lo comentado anteriormente se opta por probar las siguientes opciones:
 
 1. denoland/deno:latest
 2. denoland/deno:alpine
