@@ -2,16 +2,18 @@
 
 Por lo comentado en clase se han decidido tomar los siguientes criterios para seleccionar la imagen base. Sobre esta imagen se construirá mi Dockerfile custom y posterior imagen custom para el contenedor de testing en docker propio del objetivo 5.
 
-1. Tamaño de la imagen base:
+1. Seguridad:
+    - Se usará Snyk para analizar reportes de vulnerabilidades de las imagenes base y valorar su seguridad.
+    - No se seguirán probando imágenes que presenten vulnerabilidades medium severity y superiores.
+    - Se priorizarán imágenes sin vulnerabilidades conocidas.
+2. Tamaño de la imagen base:
     - Se va a valorar que la imagen base pese lo menos posible de cara a que la imagen final sea lo más ligera posible.
-2. Tamaño del contenedor generado:
+3. Tamaño del contenedor generado:
     - Una cosa es la imagen base y otra cosa es la imagen con la intrumentación mínima que le permita correr test. De esta forma imágenes más ligeras podrían requerir más instalaciones secundarias para correr Deno y en úlitima instancia los tests. De esta forma la imagen decidida como más ligera puede no ser la que genere el contenedor más ligero. Deberá comprobarse esto.
-3. Velocidad de arranque del contenedor:
+4. Velocidad de arranque del contenedor:
     - Se medirá el tiempo que tarda en arrancar un contenedor a partir de la imagen base para valorar objetivamente el desempeño de la imagen.
-4. Velocidad en correr los tests:
+5. Velocidad en correr los tests:
     - Se medirá el tiempo que tarda el contenedor en correr los test una vez esta ya arrancado. Contenedores más ligeros puede tener peor performance en este sentido.
-5. Seguridad:
-    - Se usará Synk para analizar reportes de vulnerabilidades de las imagenes base y valorar su seguridad.
 
 Dichos criterios sedan medidos numéricamente a fin de obtener una comparativa objetiva entre las diferentes imagenes base. Se busca quedarse con aquella que ofrezca la más óptima combinación de los distintos criterios.
 
@@ -27,17 +29,34 @@ Denoland ofrece varias versiones de su imagen oficial. La default esta construid
 
 Por otra parte se proponen otros 3 casos. Constan de un sistema operativo base sobre el que instalaremos manualmente como una capa del Doclerfile la version estable de deno que decidamos usar en el proyecto. Probaremos alpine, debian slim y ubuntu minimal como bases para las instalaciones manuales.
 
-No se tendrán en cuenta imágenes extraoficiales por no poder garantizarse la seguridad de las mismas. No se contemplan imágenes no mínimas por ser de gran importancia el peso de la imagen final y del contenedor. Se pretende usar la última versión y más recientemente actualizada de cada imagen base para mejorar la seguridad. No se contemplan imágenes desactualizadas (lo tomaremos como aquellas que lleven 3 meses o más sin actualizaciones). 
+No se tendrán en cuenta imágenes extraoficiales por no poder garantizarse la seguridad de las mismas. No se contemplan imágenes no mínimas por ser de gran importancia el peso de la imagen final y del contenedor. Se pretende usar la última versión y más recientemente actualizada de cada imagen base para mejorar la seguridad. No se contemplan imágenes desactualizadas (lo tomaremos como aquellas que lleven 1 mes o más sin actualizaciones). 
 
 Por lo comentado anteriormente se opta por probar las siguientes opciones:
 
-1. denoland/deno:latest
-2. denoland/deno:alpine
-3. denoland/deno:ubuntu
-4. alpine:latest + instalación manual de deno
-5. debian:slim + instalación manual de deno
-6. ubuntu:minimal + instalación manual de deno
+1. [denoland/deno:latest](https://hub.docker.com/layers/denoland/deno/latest/images/sha256-964a7ad8c0b41129e8e7bd75f3097317d809cf17e6278566340c1bb6ee7da215)
+2. [denoland/deno:alpine](https://hub.docker.com/layers/denoland/deno/alpine/images/sha256-46b494c16c3661483ac7bb9be439eeb10eab630d0afa42a37ad8f62236d960da)
+3. [denoland/deno:ubuntu](https://hub.docker.com/layers/denoland/deno/ubuntu/images/sha256-e1dc84939f653ceb46aacf4a964582c17fa022174ffd13973167c1c9382580ca)
+4. [alpine:latest](https://hub.docker.com/layers/library/alpine/latest/images/sha256-16ff8a639f58b38d94b054e94c106dbbd8a60d45f8b1989f98516a3e8e0792ad) + instalación manual de deno
+5. [debian:13.2-slim](https://hub.docker.com/layers/library/debian/13.2-slim/images/sha256-f0f544219ff82fd3f572c27af603e94887f2be3710eed9b1d500defe566a738b) + instalación manual de deno
 
 ## Fases de benchmarking:
 
+1. Seguridad: análisis de vulnerabilidades con Snyk.
+[Documentación seguida para realizar los test](https://docs.snyk.io/developer-tools/snyk-cli/commands/container-test)
 
+Reportes de vulnerabilidades obtenidos del análisis Snyk:
+    - [denoland/deno:latest](../documentos_extra/reportes_seguridad/reporte_denoland_latest.txt)
+    - [denoland/deno:alpine](../documentos_extra/reportes_seguridad/reporte_denoland_alpine.txt)
+    - [denoland/deno:ubuntu](../documentos_extra/reportes_seguridad/reporte_denoland_ubuntu.txt)
+    - [alpine:latest](../documentos_extra/reportes_seguridad/reporte_alpine_latest.txt)
+    - [debian:13.2-slim](../documentos_extra/reportes_seguridad/reporte_debian_13-2_slim.txt)
+Los reportes arrojan una información que puede resumirse en la siguiente tabla:
+| Imagen Base               | Vulnerabilidades High | Vulnerabilidades Medium | Vulnerabilidades Low |
+|--------------------------|----------------------|------------------------|----------------------|
+| denoland/deno:latest     | 0                    | 0                      | 23                    |
+| denoland/deno:alpine     | 0                    | 0                      | 0                    |
+| denoland/deno:ubuntu     | 0                    | 2                      | 14                    |
+| alpine:latest           | 0                    | 0                      | 0                    |
+| debian:13.2-slim       | 0                    | 0                      | 23                   |
+
+Como se puede observar denoland/deno:latest presenta las mismas vulnerabilidades que debian:13.2-slim porque realmente lo que lleva denoland debajo por defecto es debian slim. De la misma forma ocurre con denoland/deno:alpine y alpine:latest. Como podemos observar en seguridad las ganadoras son las imagenes basadas en alpine ya que no presentan vulnerabilidades conocidas.

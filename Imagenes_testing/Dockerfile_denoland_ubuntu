@@ -1,0 +1,3 @@
+FROM denoland/deno:ubuntu
+
+WORKDIR /fermater
