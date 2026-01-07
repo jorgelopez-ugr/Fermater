@@ -1,3 +1,5 @@
 FROM denoland/deno:ubuntu
 
 WORKDIR /fermater
+
+CMD ["tail", "-f", "/dev/null"]

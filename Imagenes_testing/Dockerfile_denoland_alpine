@@ -1,3 +1,5 @@
 FROM denoland/deno:alpine
 
 WORKDIR /fermater
+
+CMD ["tail", "-f", "/dev/null"]

@@ -50,6 +50,7 @@ Reportes de vulnerabilidades obtenidos del análisis Snyk:
     - [denoland/deno:ubuntu](../documentos_extra/reportes_seguridad/reporte_denoland_ubuntu.txt)
     - [alpine:latest](../documentos_extra/reportes_seguridad/reporte_alpine_latest.txt)
     - [debian:13.2-slim](../documentos_extra/reportes_seguridad/reporte_debian_13-2_slim.txt)
+
 Los reportes arrojan una información que puede resumirse en la siguiente tabla:
 | Imagen Base               | Vulnerabilidades High | Vulnerabilidades Medium | Vulnerabilidades Low |
 |--------------------------|----------------------|------------------------|----------------------|
@@ -60,3 +61,57 @@ Los reportes arrojan una información que puede resumirse en la siguiente tabla:
 | debian:13.2-slim       | 0                    | 0                      | 23                   |
 
 Como se puede observar denoland/deno:latest presenta las mismas vulnerabilidades que debian:13.2-slim porque realmente lo que lleva denoland debajo por defecto es debian slim. De la misma forma ocurre con denoland/deno:alpine y alpine:latest. Como podemos observar en seguridad las ganadoras son las imagenes basadas en alpine ya que no presentan vulnerabilidades conocidas.
+
+2. Comparación de tamaños:
+
+**Tamaño de la imagen base raw**
+
+Se crean las imagenes con:
+
+```bash
+docker build -f <ruta al Dockerfile> -t <nombre imagen> .
+```
+
+Se consulta el tamaño de las imagenes con:
+
+```bash
+docker images | grep -Ei "nombre de la imagen"
+```
+
+En este paso no vamos a comparar las imagenes de denoland porque no sería justo al contar estas ya con la instrumentación de deno instalada.
+
+| Imagen Base               | Compressed Size (Dockerhub info) | Image size once created |
+|--------------------------|----------------------|--------------------------|
+| alpine:latest           | 3.52MB | 13MB |
+| debian:13.2-slim       | 29.84MB | 117MB |
+
+Si finalmente optamos por usar una imagen base sobre la que instalamos los paquetes de deno manualmente sin duda la imagen de alpine es la ganadora en tamaño. Alpine usa musl en lugar del libc lo cual puede derivar en problemas de compatibilidad pero en este caso, al no ser ese un criterio, no lo vamos a tener en cuenta y no es relevante para nuestro caso.
+
+**Tamaño del contenedor raw generado**
+
+Se construyen los contenedores usando esas imágenes con:
+
+```bash
+docker run --rm <nombre imagen>
+```
+
+Se consulta el tamaño del contenedor corriendo con:
+
+```bash
+docker ps -s | grep -Ei "nombre o identificador del contendor"
+```
+
+Tamaño de la imagen creada y del contenedor base alpine y debian slim:
+
+| Imagen Base               | Container Size |
+|--------------------------|----------------------|
+| alpine:latest           | 12.3kB (virtual 9.15MB) |
+| debian:13.2-slim       | 4.1kB (virtual 87.5MB) |
+
+_**Aclaración**: el size normal es el peso del contenedor corriendo y virtual size es el peso real total de imagen + contenedor. Podemos entender el virtual size como "lo que este contenedor le pesa realmente al disco”_ 
+
+**Tamaño de las imagenes con los paquetes de deno**
+
+Estas imágenes ya cuentan con la instrumentación que permitiría correr los test.
+
+[WIP]

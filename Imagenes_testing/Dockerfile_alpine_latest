@@ -1,3 +1,5 @@
 FROM alpine:latest
 
 WORKDIR /fermater
+
+CMD ["tail", "-f", "/dev/null"]

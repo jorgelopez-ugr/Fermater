@@ -1,3 +1,5 @@
 FROM debian:13.2-slim
 
 WORKDIR /fermater
+
+CMD ["tail", "-f", "/dev/null"]
