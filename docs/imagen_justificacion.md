@@ -114,14 +114,25 @@ Estas imágenes ya cuentan con la instrumentación que permitiría correr los te
 
 Mis archivos desarrollados en anteriores objetivos son pasados a las imagenes usando COPY en el Dockerfile durante esta fase de testing/benchmarcking.
 
-[WIP]
+Se construyen las imagenes completas con:
+
+```bash
+docker build -f <ruta al Dockerfile> -t <nombre imagen> .
+```
+
+_**Aclaración**: Se entiende una imagen completa como aquella con capacidad de correr los test y ofrecer una respuesta. Tiene capacidad en tanto y en cuanto posee los archivos del proyecto y un deploy de deno completamente funcional._ 
+
+Se consulta el tamaño con:
+
+```bash
+docker images | grep -Ei "nombre de la imagen"
+```
 
 | Imagen Base               | Real Size |
 |--------------------------|----------------------|
-| denoland/deno:latest     |  |
-| denoland/deno:alpine     |  |
-| denoland/deno:ubuntu     |  |
-| debian:13.2-slim + deno       |  |
-| almalinux:minimal + deno       |  |
+| denoland/deno:latest     | 283MB |
+| denoland/deno:alpine     | 185MB |
+| denoland/deno:ubuntu     | 312MB |
+| debian:13.2-slim + deno       | 348MB |
+| almalinux:minimal + deno       | 312MB |
 
-[WIP]
