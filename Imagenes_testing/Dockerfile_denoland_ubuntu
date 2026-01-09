@@ -2,20 +2,17 @@ FROM denoland/deno:ubuntu
 
 WORKDIR /fermater
 
-# Capa 3: Creamos un usuario no privilegiado 'user_sin_permisos'
 RUN useradd -ms /bin/bash user_sin_permisos
 
 RUN mkdir -p /fermater/.deno_cache
 RUN chown -R user_sin_permisos:user_sin_permisos /fermater/.deno_cache
 ENV DENO_DIR=/fermater/.deno_cache
 
-# Capa 4: Pasamos los archivos del proyecto y los hacemos pertenecientes al user_sin_permisos
 COPY --chown=user_sin_permisos:user_sin_permisos ./test ./test
 COPY --chown=user_sin_permisos:user_sin_permisos ./lib ./lib
 COPY --chown=user_sin_permisos:user_sin_permisos ./deno.json ./
 COPY --chown=user_sin_permisos:user_sin_permisos ./deno.lock ./
 
-# Capa 5: La ejecucion la hacemos con el user sin permisos ya que es el unico que podemos garantizar
 USER user_sin_permisos
 
 RUN deno cache test/test.js
