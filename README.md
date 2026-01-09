@@ -79,6 +79,19 @@ deno test
 deno test --filter "<nombre>"
 ```
 
+## Entorno de tests:
+
+Se ha creado un entorno aislado. Puede consultarse la toma de decisiones en el siguiente archivo: [docs/imagen_justificacion.md](./docs/imagen_justificacion.md)
+
+Pueden consultarse las imagenes de prueba creadas en el proceso de selección a modo de benchmark en la carpeta imagenes_testing. Esta carpeta será eliminada pasado el objetivo 5.
+
+Para probarlo ejecutar el siguiente comando:
+
+```bash
+docker run -u 1001 -t -v `pwd`:/app/test jorgelopez17/fermater
+```
+
+
 ### Historias de Usuario:
 [HU001](https://github.com/jorgelopez-ugr/Fermater/issues/2#issue-3493083132)
 ### User journeys:
