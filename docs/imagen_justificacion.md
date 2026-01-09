@@ -27,17 +27,17 @@ Referencias a denoland:
 
 Denoland ofrece varias versiones de su imagen oficial. La default esta construida sobre debian slim. Compararemos también las versiones sobre alpine y ubuntu para ver si ofrecen mejor rendimiento en base a los criterios de nuestra decisión.
 
-Por otra parte se proponen otros 3 casos. Constan de un sistema operativo base sobre el que instalaremos manualmente como una capa del Doclerfile la version estable de deno que decidamos usar en el proyecto. Probaremos alpine, debian slim y ubuntu minimal como bases para las instalaciones manuales.
+Por otra parte se proponen otros 2 casos. Constan de un sistema operativo base sobre el que instalaremos manualmente como una capa del Doclerfile la version estable de deno que decidamos usar en el proyecto. Probaremos debian slim y almalinux minimal como bases para las instalaciones manuales. De esta forma comprobamos si partir de una imagen mas ligera puede ser mejor opción.
 
 No se tendrán en cuenta imágenes extraoficiales por no poder garantizarse la seguridad de las mismas. No se contemplan imágenes no mínimas por ser de gran importancia el peso de la imagen final y del contenedor. Se pretende usar la última versión y más recientemente actualizada de cada imagen base para mejorar la seguridad. No se contemplan imágenes desactualizadas (lo tomaremos como aquellas que lleven 1 mes o más sin actualizaciones). 
 
-Por lo comentado anteriormente se opta por probar las siguientes opciones:
+Por lo comentado anteriormente y para presentar un reparto muy variado en lo que a bases se refiere, se opta por probar las siguientes opciones:
 
-1. [denoland/deno:latest](https://hub.docker.com/layers/denoland/deno/latest/images/sha256-964a7ad8c0b41129e8e7bd75f3097317d809cf17e6278566340c1bb6ee7da215)
-2. [denoland/deno:alpine](https://hub.docker.com/layers/denoland/deno/alpine/images/sha256-46b494c16c3661483ac7bb9be439eeb10eab630d0afa42a37ad8f62236d960da)
-3. [denoland/deno:ubuntu](https://hub.docker.com/layers/denoland/deno/ubuntu/images/sha256-e1dc84939f653ceb46aacf4a964582c17fa022174ffd13973167c1c9382580ca)
-4. [alpine:latest](https://hub.docker.com/layers/library/alpine/latest/images/sha256-16ff8a639f58b38d94b054e94c106dbbd8a60d45f8b1989f98516a3e8e0792ad) + instalación manual de deno
-5. [debian:13.2-slim](https://hub.docker.com/layers/library/debian/13.2-slim/images/sha256-f0f544219ff82fd3f572c27af603e94887f2be3710eed9b1d500defe566a738b) + instalación manual de deno
+1. La imagen de deno por excelencia (base debian slim): [denoland/deno:latest](https://hub.docker.com/layers/denoland/deno/latest/images/sha256-964a7ad8c0b41129e8e7bd75f3097317d809cf17e6278566340c1bb6ee7da215)
+2. La imagen de deno con base en alpine: [denoland/deno:alpine](https://hub.docker.com/layers/denoland/deno/alpine/images/sha256-46b494c16c3661483ac7bb9be439eeb10eab630d0afa42a37ad8f62236d960da)
+3. La imagen de deno con base en ubuntu: [denoland/deno:ubuntu](https://hub.docker.com/layers/denoland/deno/ubuntu/images/sha256-e1dc84939f653ceb46aacf4a964582c17fa022174ffd13973167c1c9382580ca)
+4. Una base debian slim a la que le instalamos lo indispensable: [debian:13.2-slim](https://hub.docker.com/layers/library/debian/13.2-slim/images/sha256-f0f544219ff82fd3f572c27af603e94887f2be3710eed9b1d500defe566a738b) + instalación manual de deno
+5. Una base almalinux (RHEL) sobre la que instalamos los paquetes de deno: [almalinux:minimal](https://hub.docker.com/layers/library/almalinux/minimal/images/sha256-ed51273dd3e525ae42200416fd24e53c24514cc76ca98d5be5a6ffdf4169d83e) + instalación manual de deno
 
 ## Fases de benchmarking:
 
@@ -48,8 +48,8 @@ Reportes de vulnerabilidades obtenidos del análisis Snyk:
     - [denoland/deno:latest](../documentos_extra/reportes_seguridad/reporte_denoland_latest.txt)
     - [denoland/deno:alpine](../documentos_extra/reportes_seguridad/reporte_denoland_alpine.txt)
     - [denoland/deno:ubuntu](../documentos_extra/reportes_seguridad/reporte_denoland_ubuntu.txt)
-    - [alpine:latest](../documentos_extra/reportes_seguridad/reporte_alpine_latest.txt)
     - [debian:13.2-slim](../documentos_extra/reportes_seguridad/reporte_debian_13-2_slim.txt)
+    - [almalinux:minimal](../documentos_extra/reportes_seguridad/reporte_almalinux_minimal.txt)
 
 Los reportes arrojan una información que puede resumirse en la siguiente tabla:
 | Imagen Base               | Vulnerabilidades High | Vulnerabilidades Medium | Vulnerabilidades Low |
@@ -57,10 +57,10 @@ Los reportes arrojan una información que puede resumirse en la siguiente tabla:
 | denoland/deno:latest     | 0                    | 0                      | 23                    |
 | denoland/deno:alpine     | 0                    | 0                      | 0                    |
 | denoland/deno:ubuntu     | 0                    | 2                      | 14                    |
-| alpine:latest           | 0                    | 0                      | 0                    |
 | debian:13.2-slim       | 0                    | 0                      | 23                   |
+| almalinux:minimal       | 0                    | 0                      | 0                    |
 
-Como se puede observar denoland/deno:latest presenta las mismas vulnerabilidades que debian:13.2-slim porque realmente lo que lleva denoland debajo por defecto es debian slim. De la misma forma ocurre con denoland/deno:alpine y alpine:latest. Como podemos observar en seguridad las ganadoras son las imagenes basadas en alpine ya que no presentan vulnerabilidades conocidas.
+Como podemos observar en seguridad la ganadora es la imagen denoland/deno:alpine y almalinux:minimal ya que no presentan vulnerabilidades conocidas en el análisis de seguridad.
 
 2. Comparación de tamaños:
 
@@ -80,12 +80,10 @@ docker images | grep -Ei "nombre de la imagen"
 
 En este paso no vamos a comparar las imagenes de denoland porque no sería justo al contar estas ya con la instrumentación de deno instalada.
 
-| Imagen Base               | Compressed Size (Dockerhub info) | Image size once created |
+| Imagen Base               | Compressed Size (Dockerhub info) | Size once created locally |
 |--------------------------|----------------------|--------------------------|
-| alpine:latest           | 3.52MB | 13MB |
 | debian:13.2-slim       | 29.84MB | 117MB |
-
-Si finalmente optamos por usar una imagen base sobre la que instalamos los paquetes de deno manualmente sin duda la imagen de alpine es la ganadora en tamaño. Alpine usa musl en lugar del libc lo cual puede derivar en problemas de compatibilidad pero en este caso, al no ser ese un criterio, no lo vamos a tener en cuenta y no es relevante para nuestro caso.
+| almalinux:minimal       | 29.69MB | 111MB |
 
 **Tamaño del contenedor raw generado**
 
@@ -101,17 +99,29 @@ Se consulta el tamaño del contenedor corriendo con:
 docker ps -s | grep -Ei "nombre o identificador del contendor"
 ```
 
-Tamaño de la imagen creada y del contenedor base alpine y debian slim:
+Tamaño de la imagen creada y del contenedor base debian slim y base almalinux minimal:
 
 | Imagen Base               | Container Size |
 |--------------------------|----------------------|
-| alpine:latest           | 12.3kB (virtual 9.15MB) |
 | debian:13.2-slim       | 4.1kB (virtual 87.5MB) |
+| almalinux:minimal       | 4.1kB (virtual 80.3MB) |
 
 _**Aclaración**: el size normal es el peso del contenedor corriendo y virtual size es el peso real total de imagen + contenedor. Podemos entender el virtual size como "lo que este contenedor le pesa realmente al disco”_ 
 
 **Tamaño de las imagenes con los paquetes de deno**
 
 Estas imágenes ya cuentan con la instrumentación que permitiría correr los test.
+
+Mis archivos desarrollados en anteriores objetivos son pasados a las imagenes usando COPY en el Dockerfile durante esta fase de testing/benchmarcking.
+
+[WIP]
+
+| Imagen Base               | Real Size |
+|--------------------------|----------------------|
+| denoland/deno:latest     |  |
+| denoland/deno:alpine     |  |
+| denoland/deno:ubuntu     |  |
+| debian:13.2-slim + deno       |  |
+| almalinux:minimal + deno       |  |
 
 [WIP]

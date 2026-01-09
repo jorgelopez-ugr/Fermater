@@ -1,9 +1,15 @@
-FROM denoland/deno:alpine
+FROM almalinux:minimal
 
 WORKDIR /fermater
 
+# Capa 1: Actualizamos y metemos las dependencias necesarias para la instalación de deno con curl
+RUN microdnf install curl unzip shadow-utils -y
+
+# Capa 2: Descargamos e instalamos Deno en /usr/local que no es una ruta privilegiada
+RUN curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr/local sh
+
 # Capa 3: Creamos un usuario no privilegiado 'user_sin_permisos'
-RUN adduser -D -s /bin/sh user_sin_permisos
+RUN useradd -m -s /bin/bash user_sin_permisos
 
 # Capa 4: Pasamos los archivos del proyecto y los hacemos pertenecientes al user_sin_permisos
 COPY --chown=user_sin_permisos:user_sin_permisos ./test ./test
