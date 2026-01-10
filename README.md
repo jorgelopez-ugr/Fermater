@@ -75,7 +75,6 @@ deno test
 
 ### Filtrar tests por nombre
 ```bash
-# Ejecutar solo tests cuyo nombre contenga "<nombre>"
 deno test --filter "<nombre>"
 ```
 

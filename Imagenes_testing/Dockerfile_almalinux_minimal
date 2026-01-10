@@ -21,4 +21,4 @@ USER user_sin_permisos
 
 RUN deno cache test/test.js
 
-CMD ["deno", "test"]
+CMD ["tail", "-f", "/dev/null"]

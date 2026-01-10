@@ -6,18 +6,16 @@ Por lo comentado en clase se han decidido tomar los siguientes criterios para se
     - Se usará Snyk para analizar reportes de vulnerabilidades de las imagenes base y valorar su seguridad.
     - No se seguirán probando imágenes que presenten vulnerabilidades medium severity y superiores.
     - Se priorizarán imágenes sin vulnerabilidades conocidas.
-2. Tamaño de la imagen base:
-    - Se va a valorar que la imagen base pese lo menos posible de cara a que la imagen final sea lo más ligera posible.
-3. Tamaño del contenedor generado:
+2. Tamaño del contenedor generado:
     - Una cosa es la imagen base y otra cosa es la imagen con la intrumentación mínima que le permita correr test. De esta forma imágenes más ligeras podrían requerir más instalaciones secundarias para correr Deno y en úlitima instancia los tests. De esta forma la imagen decidida como más ligera puede no ser la que genere el contenedor más ligero. Deberá comprobarse esto.
-4. Velocidad en correr los tests:
-    - Se medirá el tiempo que tarda el contenedor en levantarse y correr los test. Contenedores más ligeros puede tener peor desempeño en este sentido. Va a considerarse la métrica más importante a la hora de decidir la imagen base.
+3. Velocidad en correr los tests:
+    - Se medirá el tiempo que tarda el contenedor en correr los test. Contenedores más ligeros puede tener peor desempeño en este sentido. Va a considerarse la métrica más importante a la hora de decidir la imagen base.
 
 Dichos criterios sedan medidos numéricamente a fin de obtener una comparativa objetiva entre las diferentes imagenes base. Se busca quedarse con aquella que ofrezca la más óptima combinación de los distintos criterios.
 
 ## Imagenes base sometidas al benchmark:
 
-Dado que deno ya tiene denoland que es la imagen oficial distribuida y auditada por los desarrolladores de deno vamos a tomar esta como referencia para comparar contra ella el resto de imagenes construidas. Dicho de otra forma, el rendimiento que obtenga denoland va a ser siempre 1 en puntuación de nuestro benchmark. El resto de casos se compararán contra este valor obteniendo porcentajes y puntuación relativa referente a denoland.
+Dado que deno ya tiene denoland que es la imagen oficial distribuida y auditada por los desarrolladores de deno vamos a tomar esta como referencia para comparar contra ella el resto de imagenes construidas. 
 
 Referencias a denoland:
 - [Dockerhub](https://hub.docker.com/r/denoland/deno)
@@ -25,9 +23,9 @@ Referencias a denoland:
 
 Denoland ofrece varias versiones de su imagen oficial. La default esta construida sobre debian slim. Compararemos también las versiones sobre alpine y ubuntu para ver si ofrecen mejor rendimiento en base a los criterios de nuestra decisión.
 
-Por otra parte se proponen otros 2 casos. Constan de un sistema operativo base sobre el que instalaremos manualmente como una capa del Doclerfile la version estable de deno que decidamos usar en el proyecto. Probaremos debian slim y almalinux minimal como bases para las instalaciones manuales. De esta forma comprobamos si partir de una imagen mas ligera puede ser mejor opción.
+Por otra parte se proponen otros 2 casos. Constan de un sistema operativo base sobre el que instalaremos manualmente como una capa del Doclerfile la última version de deno. Probaremos debian slim y almalinux minimal como bases para las instalaciones manuales. De esta forma comprobamos si partir de una imagen mas ligera puede ser mejor opción.
 
-No se tendrán en cuenta imágenes extraoficiales por no poder garantizarse la seguridad de las mismas. No se contemplan imágenes no mínimas por ser de gran importancia el peso de la imagen final y del contenedor. Se pretende usar la última versión y más recientemente actualizada de cada imagen base para mejorar la seguridad. No se contemplan imágenes desactualizadas (lo tomaremos como aquellas que lleven 1 mes o más sin actualizaciones). 
+No se contemplan imágenes no mínimas por ser de gran importancia el peso de la imagen final y del contenedor. Se pretende usar la última versión y más recientemente actualizada de cada imagen base para mejorar la seguridad. No se contemplan imágenes desactualizadas (lo tomaremos como aquellas que lleven 1 mes o más sin actualizaciones). 
 
 Por lo comentado anteriormente y para presentar un reparto muy variado en lo que a bases se refiere, se opta por probar las siguientes opciones:
 
@@ -62,55 +60,11 @@ Como podemos observar en seguridad la ganadora es la imagen denoland/deno:alpine
 
 ### 2. Comparación de tamaños:
 
-**Tamaño de la imagen base raw**
-
-Se crean las imagenes con:
-
-```bash
-docker build -f <ruta al Dockerfile> -t <nombre imagen> .
-```
-
-Se consulta el tamaño de las imagenes con:
-
-```bash
-docker images | grep -Ei "nombre de la imagen"
-```
-
-En este paso no vamos a comparar las imagenes de denoland porque no sería justo al contar estas ya con la instrumentación de deno instalada.
-
-| Imagen Base               | Compressed Size (Dockerhub info) | Size once created locally |
-|--------------------------|----------------------|--------------------------|
-| debian:13.2-slim       | 29.84MB | 117MB |
-| almalinux:minimal       | 29.69MB | 111MB |
-
-**Tamaño del contenedor raw generado**
-
-Se construyen los contenedores usando esas imágenes con:
-
-```bash
-docker run --rm <nombre imagen>
-```
-
-Se consulta el tamaño del contenedor corriendo con:
-
-```bash
-docker ps -s | grep -Ei "nombre o identificador del contendor"
-```
-
-Tamaño de la imagen creada y del contenedor base debian slim y base almalinux minimal:
-
-| Imagen Base               | Container Size |
-|--------------------------|----------------------|
-| debian:13.2-slim       | 4.1kB (virtual 87.5MB) |
-| almalinux:minimal       | 4.1kB (virtual 80.3MB) |
-
-_**Aclaración**: el size normal es el peso del contenedor corriendo y virtual size es el peso real total de imagen + contenedor. Podemos entender el virtual size como "lo que este contenedor le pesa realmente al disco”_ 
-
 **Tamaño de las imagenes con los paquetes de deno**
 
-Estas imágenes ya cuentan con la instrumentación que permitiría correr los test.
+Estas imágenes cuentan con la instrumentación que permitiría correr los test.
 
-Mis archivos desarrollados en anteriores objetivos son pasados a las imagenes usando COPY en el Dockerfile durante esta fase de testing/benchmarking.
+Mis archivos desarrollados en anteriores objetivos son pasados a las imagenes usando COPY en el Dockerfile durante esta fase de testing/benchmarking. No será asi en la imagen final.
 
 Se construyen las imagenes completas con:
 
@@ -134,30 +88,38 @@ docker images | grep -Ei "nombre de la imagen"
 | debian:13.2-slim + deno       | 349MB |
 | almalinux:minimal + deno       | 313MB |
 
+**Tamaño del contenedor generado por cada imagen**
+
+| Imagen Base               | Size |
+|--------------------------|----------------------|
+| denoland/deno:latest     | 4.1kB (virtual 204MB) |
+| denoland/deno:alpine     | **4.1kB (virtual 131MB)** |
+| denoland/deno:ubuntu     | 4.1kB (virtual 206MB) |
+| debian:13.2-slim + deno       | 4.1kB (virtual 247MB) |
+| almalinux:minimal + deno       | 4.1kB (virtual 220MB) |
+
 
 ### 3. Comparación de velocidades:
 
-**Velocidad en correr el contenedor y realizar los test**
+**Velocidad en realizar los test**
 
-Para comprobar la velocidad de arranque del contenedor se ha medido el tiempo que tarda en arrancar un contenedor a partir de cada imagen base. Se usa el siguiente comand:
+La velocidad se ha medido usando el siguiente comando dentro de cada cotenedor:
 
 ```bash
-time docker run --rm <nombre imagen>
+deno eval 'const t=performance.now(); await Deno.run({cmd:["deno","test"]}).status(); console.log((performance.now()-t).toFixed(3)+" ms");'
 ```
 
-Los resultados obtenidos son los siguientes:
+Velocidad de cada cotenedor en correr los test:
 
-| Imagen Base               | Real | User | Sys | 
-|--------------------------|--------|------|--------|
-| denoland/deno:latest     | 0m1,353s | 0m0,014s | 0m0,022s |
-| denoland/deno:alpine     | **0m1,225s** | 0m0,010s | 0m0,024s |
-| denoland/deno:ubuntu     | 0m1,331s | 0m0,010s | 0m0,026s |
-| debian:13.2-slim + deno       | 0m1,292s | 0m0,018s | 0m0,018s |
-| almalinux:minimal + deno       | 0m1,233s | 0m0,014s | 0m0,018s |
+| Imagen Base               | 1º Run (ms) | 2º Run (ms) | 3º Run (ms) | 4º Run (ms) | average (ms) |
+|--------------------------|--------|--------|--------|---------|--------------| 
+| denoland/deno:latest     | 83.959 | 79.240 | 80.945 | 77.207 | 80.338 | 
+| **denoland/deno:alpine**     | 77.576 | 75.557 | 77.367 | 77.234 | 76.934 |
+| denoland/deno:ubuntu     | 78.228 | 79.347 | 77.116 | 77.119 | 77.952 | 
+| debian:13.2-slim + deno       | 81.508 | 80.849 | 77.670 | 80.301 | 80.082 | 
+| almalinux:minimal + deno       | 74.742 | 77.872 | 82.715 | 76.525 | 77.464 |
 
 ## Resultados finales y elección de la imagen base:
 
-Por los resultados obtenidos en las distintas fases del benchmark podemos concluir que las mejores opciones son denoland/deno:alpine y almalinux:minimal. Ambas no presentan vulnerabilidades conocidas, son las que generan contenedores más ligeros en sus categorías y son las que mejor rendimiento ofrecen en tiempo de arranque + ejecución de test.
-
-Dado que denoland/deno:alpine, además de mostrar ligeramente mejores resultados, es la imagen oficial de deno y está auditada por los desarrolladores de deno, se opta por elegir esta imagen como base para el contenedor de testing del objetivo 5.
+Por los resultados obtenidos en las distintas fases del benchmark podemos concluir que la mejor opción es denoland/deno:alpine. Denoland/deno:alpine empata como la mejor en funcion del número de vulnerabilidades conocidas. El tamaño de imagen y contenedor ,185MB y 131MB, es el más reducido con diferencia. Su velocidad en correr los test, si bien no es mucha diferencia, es la mejor.
 
