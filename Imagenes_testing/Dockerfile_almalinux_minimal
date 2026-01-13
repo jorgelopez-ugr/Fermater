@@ -1,3 +1,5 @@
+# docker run -u 1001 -t -v `pwd`:/app/test jorgelopez17/fermater:latest
+
 FROM almalinux:minimal
 
 WORKDIR /fermater
@@ -6,19 +8,12 @@ RUN microdnf install curl unzip shadow-utils -y
 
 RUN curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr/local sh
 
-RUN useradd -m -s /bin/bash user_sin_permisos
-
 RUN mkdir -p /fermater/.deno_cache
-RUN chown -R user_sin_permisos:user_sin_permisos /fermater/.deno_cache
+RUN chmod 777 /fermater/.deno_cache
 ENV DENO_DIR=/fermater/.deno_cache
+COPY deno.json deno.lock ./
 
-COPY --chown=user_sin_permisos:user_sin_permisos ./test ./test
-COPY --chown=user_sin_permisos:user_sin_permisos ./lib ./lib
-COPY --chown=user_sin_permisos:user_sin_permisos ./deno.json ./
-COPY --chown=user_sin_permisos:user_sin_permisos ./deno.lock ./
-
-USER user_sin_permisos
-
-RUN deno cache test/test.js
+RUN deno cache deno.json
+RUN rm deno.lock deno.json
 
 CMD ["tail", "-f", "/dev/null"]

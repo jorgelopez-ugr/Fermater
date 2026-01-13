@@ -4,12 +4,13 @@ Por lo comentado en clase se han decidido tomar los siguientes criterios para se
 
 1. Seguridad:
     - Se usará Snyk para analizar reportes de vulnerabilidades de las imagenes base y valorar su seguridad.
-    - No se seguirán probando imágenes que presenten vulnerabilidades medium severity y superiores.
+    - No se seguirán probando imágenes que presenten vulnerabilidades high severity.
     - Se priorizarán imágenes sin vulnerabilidades conocidas.
 2. Tamaño del contenedor generado:
-    - Una cosa es la imagen base y otra cosa es la imagen con la intrumentación mínima que le permita correr test. De esta forma imágenes más ligeras podrían requerir más instalaciones secundarias para correr Deno y en úlitima instancia los tests. De esta forma la imagen decidida como más ligera puede no ser la que genere el contenedor más ligero. Deberá comprobarse esto.
+    - Una cosa es la imagen base y otra cosa es la imagen con la intrumentación mínima que le permita correr test. De esta forma imágenes más ligeras podrían requerir más instalaciones secundarias para correr Deno y en úlitima instancia los tests.
+    - Se medirá el tamaño de la imagen con capacidad de correr los test para ser comparado con el resto.
 3. Velocidad en correr los tests:
-    - Se medirá el tiempo que tarda el contenedor en correr los test. Contenedores más ligeros puede tener peor desempeño en este sentido. Va a considerarse la métrica más importante a la hora de decidir la imagen base.
+    - Se medirá el tiempo que tarda el contenedor en correr los test. Contenedores más ligeros puede tener peor desempeño en este sentido.
 
 Dichos criterios sedan medidos numéricamente a fin de obtener una comparativa objetiva entre las diferentes imagenes base. Se busca quedarse con aquella que ofrezca la más óptima combinación de los distintos criterios.
 
@@ -64,13 +65,21 @@ Como podemos observar en seguridad la ganadora es la imagen denoland/deno:alpine
 
 Estas imágenes cuentan con la instrumentación que permitiría correr los test.
 
-Mis archivos desarrollados en anteriores objetivos son pasados a las imagenes usando COPY en el Dockerfile durante esta fase de testing/benchmarking. No será asi en la imagen final.
+Los archivos del proyecto son montados con un volumen de la misma forma que se haría en producción a fin de obtener una comparativa más realista.
 
 Se construyen las imagenes completas con:
 
 ```bash
 docker build -f <ruta al Dockerfile> -t <nombre imagen> .
 ```
+
+<!-- 
+docker build -f Imagenes_testing/Dockerfile_debian_13-2_slim -t fermater-debianslim-deno .
+docker build -f Imagenes_testing/Dockerfile_almalinux_minimal -t fermater-almalinux-deno .
+docker build -f Imagenes_testing/Dockerfile_denoland_latest -t fermater-denoland-latest .
+docker build -f Imagenes_testing/Dockerfile_denoland_alpine -t fermater-denoland-alpine .
+docker build -f Imagenes_testing/Dockerfile_denoland_ubuntu -t fermater-denoland-ubuntu .
+-->
 
 _**Aclaración**: Se entiende una imagen completa como aquella con capacidad de correr los test y ofrecer una respuesta. Tiene capacidad en tanto y en cuanto posee los archivos del proyecto y un deploy de deno completamente funcional._ 
 
@@ -82,21 +91,42 @@ docker images | grep -Ei "nombre de la imagen"
 
 | Imagen Base               | Real Size |
 |--------------------------|----------------------|
-| denoland/deno:latest     | 283MB |
-| denoland/deno:alpine     | **185MB** |
-| denoland/deno:ubuntu     | 312MB |
-| debian:13.2-slim + deno       | 349MB |
-| almalinux:minimal + deno       | 313MB |
+| denoland/deno:latest     | 282MB |
+| denoland/deno:alpine     | **184MB** |
+| denoland/deno:ubuntu     | 282MB |
+| debian:13.2-slim + deno       | 348MB |
+| almalinux:minimal + deno       | 312MB |
 
-**Tamaño del contenedor generado por cada imagen**
+**Tamaño del contenedor generado por cada imagen antes de correr los test**
+
+<!-- 
+docker run -u 1001 -t -v `pwd`:/fermater fermater-almalinux-deno:latest &
+docker run -u 1001 -t -v `pwd`:/fermater fermater-almalinux-deno:latest &
+docker run -u 1001 -t -v `pwd`:/fermater fermater-debianslim-deno:latest &
+docker run -u 1001 -t -v `pwd`:/fermater fermater-denoland-latest:latest &
+docker run -u 1001 -t -v `pwd`:/fermater fermater-denoland-alpine:latest &
+docker run -u 1001 -t -v `pwd`:/fermater fermater-denoland-ubuntu:latest &
+ -->
+
+Se prueba el contendor con:
+
+```bash
+docker run -u 1001 -t -v `pwd`:/fermater <imagen> &
+```
+
+Se consulta el tamaño del contenedor con:
+
+```bash
+docker ps -s
+```
 
 | Imagen Base               | Size |
 |--------------------------|----------------------|
-| denoland/deno:latest     | 4.1kB (virtual 204MB) |
-| denoland/deno:alpine     | **4.1kB (virtual 131MB)** |
-| denoland/deno:ubuntu     | 4.1kB (virtual 206MB) |
-| debian:13.2-slim + deno       | 4.1kB (virtual 247MB) |
-| almalinux:minimal + deno       | 4.1kB (virtual 220MB) |
+| denoland/deno:latest     | 4.1kB (virtual 203MB) |
+| denoland/deno:alpine     | **4.1kB (virtual 130MB)** |
+| denoland/deno:ubuntu     | 4.1kB (virtual 204MB) |
+| debian:13.2-slim + deno       | 4.1kB (virtual 246MB) |
+| almalinux:minimal + deno       | 4.1kB (virtual 219MB) |
 
 
 ### 3. Comparación de velocidades:
@@ -111,15 +141,15 @@ deno eval 'const t=performance.now(); await Deno.run({cmd:["deno","test"]}).stat
 
 Velocidad de cada cotenedor en correr los test:
 
-| Imagen Base               | 1º Run (ms) | 2º Run (ms) | 3º Run (ms) | 4º Run (ms) | average (ms) |
+| Imagen Base               | 1º Run (ms) | 2º Run (ms) | 3º Run (ms) | average (ms) |
 |--------------------------|--------|--------|--------|---------|--------------| 
-| denoland/deno:latest     | 83.959 | 79.240 | 80.945 | 77.207 | 80.338 | 
-| **denoland/deno:alpine**     | 77.576 | 75.557 | 77.367 | 77.234 | 76.934 |
-| denoland/deno:ubuntu     | 78.228 | 79.347 | 77.116 | 77.119 | 77.952 | 
-| debian:13.2-slim + deno       | 81.508 | 80.849 | 77.670 | 80.301 | 80.082 | 
-| almalinux:minimal + deno       | 74.742 | 77.872 | 82.715 | 76.525 | 77.464 |
+| denoland/deno:latest     | 645.276 | 644.527 | 661.380 | 650.394 | 
+| **denoland/deno:alpine**     | 639.923 | 648.334 | 643.810 | 644.022 |
+| denoland/deno:ubuntu     | 696.996 | 655.581 | 646.094 | 666.224 | 
+| debian:13.2-slim + deno       | 646.260 | 687.031 | 654.802 | 662.031 | 
+| almalinux:minimal + deno       | 665.428 | 645.793 | 636.910 | 649.377 |
 
 ## Resultados finales y elección de la imagen base:
 
-Por los resultados obtenidos en las distintas fases del benchmark podemos concluir que la mejor opción es denoland/deno:alpine. Denoland/deno:alpine empata como la mejor en funcion del número de vulnerabilidades conocidas. El tamaño de imagen y contenedor ,185MB y 131MB, es el más reducido con diferencia. Su velocidad en correr los test, si bien no es mucha diferencia, es la mejor.
+Por los resultados obtenidos en las distintas fases del benchmark podemos concluir que la mejor opción es denoland/deno:alpine. Denoland/deno:alpine empata como la mejor en funcion del número de vulnerabilidades conocidas. El tamaño de imagen y contenedor , 184MB y 130MB, es el más reducido con diferencia. Su velocidad en correr los test, si bien no es mucha diferencia, es la mejor.
 

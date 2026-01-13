@@ -6,20 +6,14 @@ RUN apt-get update && apt-get install -y curl unzip
 
 RUN curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr/local sh
 
-RUN useradd -ms /bin/bash user_sin_permisos
-
 RUN mkdir -p /fermater/.deno_cache
-RUN chown -R user_sin_permisos:user_sin_permisos /fermater/.deno_cache
+RUN chmod 777 /fermater/.deno_cache
 ENV DENO_DIR=/fermater/.deno_cache
 
-COPY --chown=user_sin_permisos:user_sin_permisos ./test ./test
-COPY --chown=user_sin_permisos:user_sin_permisos ./lib ./lib
-COPY --chown=user_sin_permisos:user_sin_permisos ./deno.json ./
-COPY --chown=user_sin_permisos:user_sin_permisos ./deno.lock ./
+COPY deno.json deno.lock ./
 
-USER user_sin_permisos
-
-RUN deno cache test/test.js
+RUN deno cache deno.json
+RUN rm deno.lock deno.json
 
 CMD ["tail", "-f", "/dev/null"]
 
