@@ -14,8 +14,6 @@ COPY  --chown=user_sin_permisos:user_sin_permisos deno.json deno.lock ./
 # Capa 5 cacheamos los archivos pasados
 RUN deno cache deno.json
 # Capa 6 limpiamos los archivos por seguridad y eficiencia
-# El propietario de estos archivos es user_sin_permisos
-# Los eliminamos porque ya no son necesarios después del cacheo.
 RUN rm deno.lock deno.json
 # Creamos el entrypoint que lanzará los test
 ENTRYPOINT ["deno","task", "test"]
