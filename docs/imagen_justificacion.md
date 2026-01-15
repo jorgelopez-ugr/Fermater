@@ -33,7 +33,7 @@ Por lo comentado anteriormente y para presentar un reparto muy variado en lo que
 1. La imagen de deno por excelencia (base debian slim): [denoland/deno:latest](https://hub.docker.com/layers/denoland/deno/latest/images/sha256-964a7ad8c0b41129e8e7bd75f3097317d809cf17e6278566340c1bb6ee7da215)
 2. La imagen de deno con base en alpine: [denoland/deno:alpine](https://hub.docker.com/layers/denoland/deno/alpine/images/sha256-46b494c16c3661483ac7bb9be439eeb10eab630d0afa42a37ad8f62236d960da)
 3. La imagen de deno con base en ubuntu: [denoland/deno:ubuntu](https://hub.docker.com/layers/denoland/deno/ubuntu/images/sha256-e1dc84939f653ceb46aacf4a964582c17fa022174ffd13973167c1c9382580ca)
-4. Una base debian slim a la que le instalamos lo indispensable: [debian:13.2-slim](https://hub.docker.com/layers/library/debian/13.2-slim/images/sha256-f0f544219ff82fd3f572c27af603e94887f2be3710eed9b1d500defe566a738b) + instalación manual de deno
+4. Una base debian slim a la que le instalamos lo indispensable: [debian:stable-slim](https://hub.docker.com/layers/library/debian/stable-slim/images/sha256-4db0b259ee0d43dc0f52da06d125969a0b28dbb02201f3ee1615a8f9850d259f) + instalación manual de deno
 5. Una base almalinux (RHEL) sobre la que instalamos los paquetes de deno: [almalinux:minimal](https://hub.docker.com/layers/library/almalinux/minimal/images/sha256-ed51273dd3e525ae42200416fd24e53c24514cc76ca98d5be5a6ffdf4169d83e) + instalación manual de deno
 
 ## Fases de benchmarking:
@@ -45,7 +45,7 @@ Reportes de vulnerabilidades obtenidos del análisis Snyk:
     - [denoland/deno:latest](../documentos_extra/reportes_seguridad/reporte_denoland_latest.txt)
     - [denoland/deno:alpine](../documentos_extra/reportes_seguridad/reporte_denoland_alpine.txt)
     - [denoland/deno:ubuntu](../documentos_extra/reportes_seguridad/reporte_denoland_ubuntu.txt)
-    - [debian:13.2-slim](../documentos_extra/reportes_seguridad/reporte_debian_13-2_slim.txt)
+    - [debian:stable-slim](../documentos_extra/reportes_seguridad/reporte_debian_stable_slim.txt)
     - [almalinux:minimal](../documentos_extra/reportes_seguridad/reporte_almalinux_minimal.txt)
 
 Los reportes arrojan una información que puede resumirse en la siguiente tabla:
@@ -54,7 +54,7 @@ Los reportes arrojan una información que puede resumirse en la siguiente tabla:
 | denoland/deno:latest     | 0                    | 0                      | 23                    |
 | **denoland/deno:alpine**     | **0**                    | **0**                      | **0**                    |
 | denoland/deno:ubuntu     | 0                    | 2                      | 14                    |
-| debian:13.2-slim       | 0                    | 0                      | 23                   |
+| debian:stable-slim       | 0                    | 0                      | 23                   |
 | **almalinux:minimal**       | **0**                    | **0**                      | **0**                    |
 
 Como podemos observar en seguridad la ganadora es la imagen denoland/deno:alpine y almalinux:minimal ya que no presentan vulnerabilidades conocidas en el análisis de seguridad.
@@ -74,7 +74,7 @@ docker build -f <ruta al Dockerfile> -t <nombre imagen> .
 ```
 
 <!-- 
-docker build -f Imagenes_testing/Dockerfile_debian_13-2_slim -t fermater-debianslim-deno .
+docker build -f Imagenes_testing/Dockerfile_debian_stable_slim -t fermater-debianslim-deno .
 docker build -f Imagenes_testing/Dockerfile_almalinux_minimal -t fermater-almalinux-deno .
 docker build -f Imagenes_testing/Dockerfile_denoland_latest -t fermater-denoland-latest .
 docker build -f Imagenes_testing/Dockerfile_denoland_alpine -t fermater-denoland-alpine .
@@ -94,7 +94,7 @@ docker images | grep -Ei "nombre de la imagen"
 | denoland/deno:latest     | 282MB |
 | denoland/deno:alpine     | **184MB** |
 | denoland/deno:ubuntu     | 282MB |
-| debian:13.2-slim + deno       | 348MB |
+| debian:stable-slim + deno       | 348MB |
 | almalinux:minimal + deno       | 312MB |
 
 **Tamaño del contenedor generado por cada imagen antes de correr los test**
@@ -125,7 +125,7 @@ docker ps -s
 | denoland/deno:latest     | 4.1kB (virtual 203MB) |
 | denoland/deno:alpine     | **4.1kB (virtual 130MB)** |
 | denoland/deno:ubuntu     | 4.1kB (virtual 204MB) |
-| debian:13.2-slim + deno       | 4.1kB (virtual 246MB) |
+| debian:stable-slim + deno       | 4.1kB (virtual 246MB) |
 | almalinux:minimal + deno       | 4.1kB (virtual 219MB) |
 
 
@@ -146,7 +146,7 @@ Velocidad de cada cotenedor en correr los test:
 | denoland/deno:latest     | 645.276 | 644.527 | 661.380 | 650.394 | 
 | **denoland/deno:alpine**     | 639.923 | 648.334 | 643.810 | 644.022 |
 | denoland/deno:ubuntu     | 696.996 | 655.581 | 646.094 | 666.224 | 
-| debian:13.2-slim + deno       | 646.260 | 687.031 | 654.802 | 662.031 | 
+| debian:stable-slim + deno       | 724.264 | 675.800 | 653.091 | 684.385 | 
 | almalinux:minimal + deno       | 665.428 | 645.793 | 636.910 | 649.377 |
 
 ## Resultados finales y elección de la imagen base:

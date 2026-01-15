@@ -1,4 +1,4 @@
-docker-image|debian @ 13.2-slim
+docker-image|debian @ stable-slim
    ├─ acl/libacl1 @ 2.3.2-2+b1
    ├─ apt @ 3.0.3
    │  ├─ apt/libapt-pkg7.0 @ 3.0.3
@@ -12,9 +12,9 @@ docker-image|debian @ 13.2-slim
    │  │  │  ├─ openssl/openssl-provider-legacy @ 3.5.4-1~deb13u1
    │  │  │  └─ zlib/zlib1g @ 1:1.3.dfsg+really1.3.1-1+b1
    │  │  ├─ systemd/libsystemd0 @ 257.9-1~deb13u1
-   │  │  │  └─ libcap2/libcap2 @ 1:2.75-10+b1
+   │  │  │  └─ libcap2/libcap2 @ 1:2.75-10+b3
    │  │  ├─ systemd/libudev1 @ 257.9-1~deb13u1
-   │  │  │  └─ libcap2/libcap2 @ 1:2.75-10+b1
+   │  │  │  └─ libcap2/libcap2 @ 1:2.75-10+b3
    │  │  ├─ xxhash/libxxhash0 @ 0.8.3-2
    │  │  ├─ xz-utils/liblzma5 @ 5.8.1-1
    │  │  └─ zlib/zlib1g @ 1:1.3.dfsg+really1.3.1-1+b1
@@ -26,7 +26,7 @@ docker-image|debian @ 13.2-slim
    │  ├─ gcc-14/libstdc++6 @ 14.2.0-19
    │  ├─ libseccomp/libseccomp2 @ 2.6.0-2
    │  ├─ openssl/libssl3t64 @ 3.5.4-1~deb13u1
-   │  ├─ rust-sequoia-sqv/sqv @ 1.3.0-3
+   │  ├─ rust-sequoia-sqv/sqv @ 1.3.0-3+b2
    │  │  ├─ gmp/libgmp10 @ 2:6.3.0+dfsg-3
    │  │  ├─ nettle/libhogweed6t64 @ 3.10.1-1
    │  │  │  ├─ gmp/libgmp10 @ 2:6.3.0+dfsg-3
@@ -39,11 +39,11 @@ docker-image|debian @ 13.2-slim
    ├─ audit/libaudit1 @ 1:4.0.2-2+b2
    │  ├─ audit/libaudit-common @ 1:4.0.2-2
    │  └─ libcap-ng/libcap-ng0 @ 0.8.5-4+b1
-   ├─ base-files @ 13.8+deb13u2
+   ├─ base-files @ 13.8+deb13u3
    │  └─ mawk @ 1.3.4.20250131-1
    ├─ base-passwd @ 3.6.7
-   ├─ bash/bash @ 5.2.37-2+b5
-   │  ├─ base-files @ 13.8+deb13u2
+   ├─ bash/bash @ 5.2.37-2+b7
+   │  ├─ base-files @ 13.8+deb13u3
    │  ├─ debianutils @ 5.23.2
    │  └─ ncurses/libtinfo6 @ 6.5+20250216-2
    ├─ bzip2/libbz2-1.0 @ 1.0.8-6
@@ -52,7 +52,7 @@ docker-image|debian @ 13.2-slim
    │  ├─ acl/libacl1 @ 2.3.2-2+b1
    │  ├─ attr/libattr1 @ 1:2.5.2-3
    │  ├─ gmp/libgmp10 @ 2:6.3.0+dfsg-3
-   │  ├─ libcap2/libcap2 @ 1:2.75-10+b1
+   │  ├─ libcap2/libcap2 @ 1:2.75-10+b3
    │  ├─ libselinux/libselinux1 @ 3.8.1-1
    │  ├─ openssl/libssl3t64 @ 3.5.4-1~deb13u1
    │  └─ systemd/libsystemd0 @ 257.9-1~deb13u1
@@ -78,8 +78,8 @@ docker-image|debian @ 13.2-slim
    ├─ gcc-14/gcc-14-base @ 14.2.0-19
    ├─ gcc-14/libgcc-s1 @ 14.2.0-19
    ├─ gcc-14/libstdc++6 @ 14.2.0-19
-   ├─ glibc/libc-bin @ 2.41-12
-   ├─ glibc/libc6 @ 2.41-12
+   ├─ glibc/libc-bin @ 2.41-12+deb13u1
+   ├─ glibc/libc6 @ 2.41-12+deb13u1
    ├─ gmp/libgmp10 @ 2:6.3.0+dfsg-3
    ├─ grep @ 3.11-4
    │  └─ pcre2/libpcre2-8-0 @ 10.46-1~deb13u1
@@ -89,7 +89,7 @@ docker-image|debian @ 13.2-slim
    ├─ libbsd/libbsd0 @ 0.12.2-2
    │  └─ libmd/libmd0 @ 1.1.0-2+b1
    ├─ libcap-ng/libcap-ng0 @ 0.8.5-4+b1
-   ├─ libcap2/libcap2 @ 1:2.75-10+b1
+   ├─ libcap2/libcap2 @ 1:2.75-10+b3
    ├─ libmd/libmd0 @ 1.1.0-2+b1
    ├─ libseccomp/libseccomp2 @ 2.6.0-2
    ├─ libselinux/libselinux1 @ 3.8.1-1
@@ -137,7 +137,7 @@ docker-image|debian @ 13.2-slim
    ├─ pcre2/libpcre2-8-0 @ 10.46-1~deb13u1
    ├─ perl/perl-base @ 5.40.1-6
    │  └─ libxcrypt/libcrypt1 @ 1:4.4.38-1
-   ├─ rust-sequoia-sqv/sqv @ 1.3.0-3
+   ├─ rust-sequoia-sqv/sqv @ 1.3.0-3+b2
    ├─ sed @ 4.9-2
    │  ├─ acl/libacl1 @ 2.3.2-2+b1
    │  └─ libselinux/libselinux1 @ 3.8.1-1
@@ -202,7 +202,7 @@ docker-image|debian @ 13.2-slim
    ├─ xz-utils/liblzma5 @ 5.8.1-1
    └─ zlib/zlib1g @ 1:1.3.dfsg+really1.3.1-1+b1
 
-Testing debian:13.2-slim...
+Testing debian:stable-slim...
 
 ✗ Low severity vulnerability found in util-linux/libblkid1
   Description: Out-of-bounds Read
@@ -212,7 +212,7 @@ Testing debian:13.2-slim...
   From: util-linux/libmount1@2.41-5 > util-linux/libblkid1@2.41-5
   From: util-linux@2.41-5 > util-linux/libblkid1@2.41-5
   and 15 more...
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in util-linux/libblkid1
   Description: Information Exposure
@@ -222,7 +222,7 @@ Testing debian:13.2-slim...
   From: util-linux/libmount1@2.41-5 > util-linux/libblkid1@2.41-5
   From: util-linux@2.41-5 > util-linux/libblkid1@2.41-5
   and 15 more...
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in tar
   Description: CVE-2005-2541
@@ -230,7 +230,7 @@ Testing debian:13.2-slim...
   Introduced through: tar@1.35+dfsg-3.1, dpkg@1.22.21
   From: tar@1.35+dfsg-3.1
   From: dpkg@1.22.21 > tar@1.35+dfsg-3.1
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in systemd/libsystemd0
   Description: Link Following
@@ -240,7 +240,7 @@ Testing debian:13.2-slim...
   From: apt@3.0.3 > systemd/libsystemd0@257.9-1~deb13u1
   From: coreutils@9.7-3 > systemd/libsystemd0@257.9-1~deb13u1
   and 8 more...
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in systemd/libsystemd0
   Description: Improper Validation of Integrity Check Value
@@ -250,7 +250,7 @@ Testing debian:13.2-slim...
   From: apt@3.0.3 > systemd/libsystemd0@257.9-1~deb13u1
   From: coreutils@9.7-3 > systemd/libsystemd0@257.9-1~deb13u1
   and 8 more...
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in systemd/libsystemd0
   Description: Improper Validation of Integrity Check Value
@@ -260,7 +260,7 @@ Testing debian:13.2-slim...
   From: apt@3.0.3 > systemd/libsystemd0@257.9-1~deb13u1
   From: coreutils@9.7-3 > systemd/libsystemd0@257.9-1~deb13u1
   and 8 more...
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in systemd/libsystemd0
   Description: Improper Validation of Integrity Check Value
@@ -270,7 +270,7 @@ Testing debian:13.2-slim...
   From: apt@3.0.3 > systemd/libsystemd0@257.9-1~deb13u1
   From: coreutils@9.7-3 > systemd/libsystemd0@257.9-1~deb13u1
   and 8 more...
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in sqlite3/libsqlite3-0
   Description: CVE-2025-7709
@@ -278,7 +278,7 @@ Testing debian:13.2-slim...
   Introduced through: sqlite3/libsqlite3-0@3.46.1-7, util-linux/liblastlog2-2@2.41-5
   From: sqlite3/libsqlite3-0@3.46.1-7
   From: util-linux/liblastlog2-2@2.41-5 > sqlite3/libsqlite3-0@3.46.1-7
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in sqlite3/libsqlite3-0
   Description: Memory Leak
@@ -286,7 +286,7 @@ Testing debian:13.2-slim...
   Introduced through: sqlite3/libsqlite3-0@3.46.1-7, util-linux/liblastlog2-2@2.41-5
   From: sqlite3/libsqlite3-0@3.46.1-7
   From: util-linux/liblastlog2-2@2.41-5 > sqlite3/libsqlite3-0@3.46.1-7
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in shadow/login.defs
   Description: Access Restriction Bypass
@@ -296,7 +296,7 @@ Testing debian:13.2-slim...
   From: shadow/passwd@1:4.17.4-2 > shadow/login.defs@1:4.17.4-2
   From: util-linux/login@1:4.16.0-2+really2.41-5 > shadow/login.defs@1:4.17.4-2
   and 1 more...
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in shadow/login.defs
   Description: CVE-2024-56433
@@ -306,94 +306,94 @@ Testing debian:13.2-slim...
   From: shadow/passwd@1:4.17.4-2 > shadow/login.defs@1:4.17.4-2
   From: util-linux/login@1:4.16.0-2+really2.41-5 > shadow/login.defs@1:4.17.4-2
   and 1 more...
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in perl/perl-base
   Description: Link Following
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-PERL-5692251
   Introduced through: perl/perl-base@5.40.1-6
   From: perl/perl-base@5.40.1-6
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in ncurses/libtinfo6
   Description: Out-of-Bounds
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-NCURSES-10378958
-  Introduced through: ncurses/libtinfo6@6.5+20250216-2, bash/bash@5.2.37-2+b5, ncurses/ncurses-bin@6.5+20250216-2, util-linux@2.41-5, ncurses/ncurses-base@6.5+20250216-2
+  Introduced through: ncurses/libtinfo6@6.5+20250216-2, bash/bash@5.2.37-2+b7, ncurses/ncurses-bin@6.5+20250216-2, util-linux@2.41-5, ncurses/ncurses-base@6.5+20250216-2
   From: ncurses/libtinfo6@6.5+20250216-2
-  From: bash/bash@5.2.37-2+b5 > ncurses/libtinfo6@6.5+20250216-2
+  From: bash/bash@5.2.37-2+b7 > ncurses/libtinfo6@6.5+20250216-2
   From: ncurses/ncurses-bin@6.5+20250216-2 > ncurses/libtinfo6@6.5+20250216-2
   and 3 more...
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in glibc/libc-bin
   Description: Uncontrolled Recursion
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5680884
-  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
-  From: glibc/libc-bin@2.41-12
-  From: glibc/libc6@2.41-12
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Introduced through: glibc/libc-bin@2.41-12+deb13u1, glibc/libc6@2.41-12+deb13u1
+  From: glibc/libc-bin@2.41-12+deb13u1
+  From: glibc/libc6@2.41-12+deb13u1
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in glibc/libc-bin
   Description: Resource Management Errors
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681058
-  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
-  From: glibc/libc-bin@2.41-12
-  From: glibc/libc6@2.41-12
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Introduced through: glibc/libc-bin@2.41-12+deb13u1, glibc/libc6@2.41-12+deb13u1
+  From: glibc/libc-bin@2.41-12+deb13u1
+  From: glibc/libc6@2.41-12+deb13u1
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in glibc/libc-bin
   Description: Use of Insufficiently Random Values
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681145
-  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
-  From: glibc/libc-bin@2.41-12
-  From: glibc/libc6@2.41-12
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Introduced through: glibc/libc-bin@2.41-12+deb13u1, glibc/libc6@2.41-12+deb13u1
+  From: glibc/libc-bin@2.41-12+deb13u1
+  From: glibc/libc6@2.41-12+deb13u1
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in glibc/libc-bin
   Description: CVE-2019-1010023
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681177
-  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
-  From: glibc/libc-bin@2.41-12
-  From: glibc/libc6@2.41-12
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Introduced through: glibc/libc-bin@2.41-12+deb13u1, glibc/libc6@2.41-12+deb13u1
+  From: glibc/libc-bin@2.41-12+deb13u1
+  From: glibc/libc6@2.41-12+deb13u1
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in glibc/libc-bin
   Description: Uncontrolled Recursion
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681215
-  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
-  From: glibc/libc-bin@2.41-12
-  From: glibc/libc6@2.41-12
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Introduced through: glibc/libc-bin@2.41-12+deb13u1, glibc/libc6@2.41-12+deb13u1
+  From: glibc/libc-bin@2.41-12+deb13u1
+  From: glibc/libc6@2.41-12+deb13u1
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in glibc/libc-bin
   Description: Out-of-Bounds
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681241
-  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
-  From: glibc/libc-bin@2.41-12
-  From: glibc/libc6@2.41-12
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Introduced through: glibc/libc-bin@2.41-12+deb13u1, glibc/libc6@2.41-12+deb13u1
+  From: glibc/libc-bin@2.41-12+deb13u1
+  From: glibc/libc6@2.41-12+deb13u1
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in glibc/libc-bin
   Description: Information Exposure
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681256
-  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
-  From: glibc/libc-bin@2.41-12
-  From: glibc/libc6@2.41-12
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Introduced through: glibc/libc-bin@2.41-12+deb13u1, glibc/libc6@2.41-12+deb13u1
+  From: glibc/libc-bin@2.41-12+deb13u1
+  From: glibc/libc6@2.41-12+deb13u1
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in coreutils
   Description: Stack-based Buffer Overflow
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-COREUTILS-10259260
   Introduced through: coreutils@9.7-3
   From: coreutils@9.7-3
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in coreutils
   Description: Race Condition
   Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-COREUTILS-5673914
   Introduced through: coreutils@9.7-3
   From: coreutils@9.7-3
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 ✗ Low severity vulnerability found in apt/libapt-pkg7.0
   Description: Improper Verification of Cryptographic Signature
@@ -402,23 +402,25 @@ Testing debian:13.2-slim...
   From: apt/libapt-pkg7.0@3.0.3
   From: apt@3.0.3 > apt/libapt-pkg7.0@3.0.3
   From: apt@3.0.3
-  Image layer: Introduced by your base image (debian:13.2-slim)
+  Image layer: Introduced by your base image (debian:stable-slim)
 
 
 
 Organization:      frijolijo17
 Package manager:   deb
-Target file:       /home/jorge/Escritorio/4toCarrera/IV/obj3/Fermater/Imagenes_testing/Dockerfile_debian_13-2_slim
+Target file:       /home/jorge/Escritorio/4toCarrera/IV/obj3/Fermater/Imagenes_testing/Dockerfile_debian_stable_slim
 Project name:      docker-image|debian
-Docker image:      debian:13.2-slim
+Docker image:      debian:stable-slim
 Platform:          linux/amd64
 Target OS:         Debian GNU/Linux 13 (trixie)
-Base image:        debian:13.2-slim
+Base image:        debian:stable-slim
 Licenses:          enabled
 
 Tested 78 dependencies for known issues, found 23 issues.
 
-According to our scan, you are currently using the most secure version of the selected base image
+Recommendations for debian:stable-slim are not available, as we haven't found any recent updates to this base image.
+Consider upgrading your base image.
+See above for details and fixes on individual vulnerabilities
 
 Pro tip: use `--exclude-base-image-vulns` to exclude from display Docker base image vulnerabilities.
 
