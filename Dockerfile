@@ -16,4 +16,4 @@ RUN deno cache deno.json
 # Capa 6 limpiamos los archivos por seguridad y eficiencia
 RUN rm deno.lock deno.json 
 # Creamos el entrypoint que lanzará los test
-ENTRYPOINT ["deno","task", "test"]
+ENTRYPOINT ["deno","task", "test"]  
