@@ -1,0 +1,432 @@
+docker-image|denoland/deno @ latest
+   ├─ acl/libacl1 @ 2.3.2-2+b1
+   ├─ apt @ 3.0.3
+   │  ├─ apt/libapt-pkg7.0 @ 3.0.3
+   │  │  ├─ bzip2/libbz2-1.0 @ 1.0.8-6
+   │  │  ├─ gcc-14/libstdc++6 @ 14.2.0-19
+   │  │  ├─ libzstd/libzstd1 @ 1.5.7+dfsg-1
+   │  │  ├─ lz4/liblz4-1 @ 1.10.0-4
+   │  │  │  └─ xxhash/libxxhash0 @ 0.8.3-2
+   │  │  ├─ openssl/libssl3t64 @ 3.5.4-1~deb13u1
+   │  │  │  ├─ libzstd/libzstd1 @ 1.5.7+dfsg-1
+   │  │  │  ├─ openssl/openssl-provider-legacy @ 3.5.4-1~deb13u1
+   │  │  │  └─ zlib/zlib1g @ 1:1.3.dfsg+really1.3.1-1+b1
+   │  │  ├─ systemd/libsystemd0 @ 257.9-1~deb13u1
+   │  │  │  └─ libcap2/libcap2 @ 1:2.75-10+b1
+   │  │  ├─ systemd/libudev1 @ 257.9-1~deb13u1
+   │  │  │  └─ libcap2/libcap2 @ 1:2.75-10+b1
+   │  │  ├─ xxhash/libxxhash0 @ 0.8.3-2
+   │  │  ├─ xz-utils/liblzma5 @ 5.8.1-1
+   │  │  └─ zlib/zlib1g @ 1:1.3.dfsg+really1.3.1-1+b1
+   │  ├─ base-passwd @ 3.6.7
+   │  │  ├─ cdebconf/libdebconfclient0 @ 0.280
+   │  │  └─ libselinux/libselinux1 @ 3.8.1-1
+   │  │     └─ pcre2/libpcre2-8-0 @ 10.46-1~deb13u1
+   │  ├─ debian-archive-keyring @ 2025.1
+   │  ├─ gcc-14/libstdc++6 @ 14.2.0-19
+   │  ├─ libseccomp/libseccomp2 @ 2.6.0-2
+   │  ├─ openssl/libssl3t64 @ 3.5.4-1~deb13u1
+   │  ├─ rust-sequoia-sqv/sqv @ 1.3.0-3
+   │  │  ├─ gmp/libgmp10 @ 2:6.3.0+dfsg-3
+   │  │  ├─ nettle/libhogweed6t64 @ 3.10.1-1
+   │  │  │  ├─ gmp/libgmp10 @ 2:6.3.0+dfsg-3
+   │  │  │  └─ nettle/libnettle8t64 @ 3.10.1-1
+   │  │  └─ nettle/libnettle8t64 @ 3.10.1-1
+   │  └─ systemd/libsystemd0 @ 257.9-1~deb13u1
+   ├─ apt/libapt-pkg7.0 @ 3.0.3
+   ├─ attr/libattr1 @ 1:2.5.2-3
+   ├─ audit/libaudit-common @ 1:4.0.2-2
+   ├─ audit/libaudit1 @ 1:4.0.2-2+b2
+   │  ├─ audit/libaudit-common @ 1:4.0.2-2
+   │  └─ libcap-ng/libcap-ng0 @ 0.8.5-4+b1
+   ├─ base-files @ 13.8+deb13u2
+   │  └─ mawk @ 1.3.4.20250131-1
+   ├─ base-passwd @ 3.6.7
+   ├─ bash/bash @ 5.2.37-2+b5
+   │  ├─ base-files @ 13.8+deb13u2
+   │  ├─ debianutils @ 5.23.2
+   │  └─ ncurses/libtinfo6 @ 6.5+20250216-2
+   ├─ bzip2/libbz2-1.0 @ 1.0.8-6
+   ├─ cdebconf/libdebconfclient0 @ 0.280
+   ├─ coreutils @ 9.7-3
+   │  ├─ acl/libacl1 @ 2.3.2-2+b1
+   │  ├─ attr/libattr1 @ 1:2.5.2-3
+   │  ├─ gmp/libgmp10 @ 2:6.3.0+dfsg-3
+   │  ├─ libcap2/libcap2 @ 1:2.75-10+b1
+   │  ├─ libselinux/libselinux1 @ 3.8.1-1
+   │  ├─ openssl/libssl3t64 @ 3.5.4-1~deb13u1
+   │  └─ systemd/libsystemd0 @ 257.9-1~deb13u1
+   ├─ dash @ 0.5.12-12
+   │  └─ debianutils @ 5.23.2
+   ├─ db5.3/libdb5.3t64 @ 5.3.28+dfsg2-9
+   ├─ debconf @ 1.5.91
+   ├─ debian-archive-keyring @ 2025.1
+   ├─ debianutils @ 5.23.2
+   ├─ diffutils @ 1:3.10-4
+   ├─ dpkg @ 1.22.21
+   │  ├─ bzip2/libbz2-1.0 @ 1.0.8-6
+   │  ├─ libmd/libmd0 @ 1.1.0-2+b1
+   │  ├─ libselinux/libselinux1 @ 3.8.1-1
+   │  ├─ libzstd/libzstd1 @ 1.5.7+dfsg-1
+   │  ├─ tar @ 1.35+dfsg-3.1
+   │  │  ├─ acl/libacl1 @ 2.3.2-2+b1
+   │  │  └─ libselinux/libselinux1 @ 3.8.1-1
+   │  ├─ xz-utils/liblzma5 @ 5.8.1-1
+   │  └─ zlib/zlib1g @ 1:1.3.dfsg+really1.3.1-1+b1
+   ├─ findutils @ 4.10.0-3
+   │  └─ libselinux/libselinux1 @ 3.8.1-1
+   ├─ gcc-14/gcc-14-base @ 14.2.0-19
+   ├─ gcc-14/libgcc-s1 @ 14.2.0-19
+   ├─ gcc-14/libstdc++6 @ 14.2.0-19
+   ├─ glibc/libc-bin @ 2.41-12
+   ├─ glibc/libc6 @ 2.41-12
+   ├─ gmp/libgmp10 @ 2:6.3.0+dfsg-3
+   ├─ grep @ 3.11-4
+   │  └─ pcre2/libpcre2-8-0 @ 10.46-1~deb13u1
+   ├─ gzip @ 1.13-1
+   ├─ hostname @ 3.25
+   ├─ init-system-helpers @ 1.69~deb13u1
+   ├─ libbsd/libbsd0 @ 0.12.2-2
+   │  └─ libmd/libmd0 @ 1.1.0-2+b1
+   ├─ libcap-ng/libcap-ng0 @ 0.8.5-4+b1
+   ├─ libcap2/libcap2 @ 1:2.75-10+b1
+   ├─ libmd/libmd0 @ 1.1.0-2+b1
+   ├─ libseccomp/libseccomp2 @ 2.6.0-2
+   ├─ libselinux/libselinux1 @ 3.8.1-1
+   ├─ libsemanage/libsemanage-common @ 3.8.1-1
+   ├─ libsemanage/libsemanage2 @ 3.8.1-1
+   │  ├─ audit/libaudit1 @ 1:4.0.2-2+b2
+   │  ├─ bzip2/libbz2-1.0 @ 1.0.8-6
+   │  ├─ libselinux/libselinux1 @ 3.8.1-1
+   │  ├─ libsemanage/libsemanage-common @ 3.8.1-1
+   │  └─ libsepol/libsepol2 @ 3.8.1-1
+   ├─ libsepol/libsepol2 @ 3.8.1-1
+   ├─ libxcrypt/libcrypt1 @ 1:4.4.38-1
+   ├─ libzstd/libzstd1 @ 1.5.7+dfsg-1
+   ├─ lz4/liblz4-1 @ 1.10.0-4
+   ├─ mawk @ 1.3.4.20250131-1
+   ├─ ncurses/libtinfo6 @ 6.5+20250216-2
+   ├─ ncurses/ncurses-base @ 6.5+20250216-2
+   ├─ ncurses/ncurses-bin @ 6.5+20250216-2
+   │  └─ ncurses/libtinfo6 @ 6.5+20250216-2
+   ├─ nettle/libhogweed6t64 @ 3.10.1-1
+   ├─ nettle/libnettle8t64 @ 3.10.1-1
+   ├─ openssl/libssl3t64 @ 3.5.4-1~deb13u1
+   ├─ openssl/openssl-provider-legacy @ 3.5.4-1~deb13u1
+   ├─ pam/libpam-modules @ 1.7.0-5
+   │  ├─ audit/libaudit1 @ 1:4.0.2-2+b2
+   │  ├─ db5.3/libdb5.3t64 @ 5.3.28+dfsg2-9
+   │  ├─ debconf @ 1.5.91
+   │  ├─ libselinux/libselinux1 @ 3.8.1-1
+   │  ├─ libxcrypt/libcrypt1 @ 1:4.4.38-1
+   │  ├─ pam/libpam-modules-bin @ 1.7.0-5
+   │  │  ├─ audit/libaudit1 @ 1:4.0.2-2+b2
+   │  │  ├─ libselinux/libselinux1 @ 3.8.1-1
+   │  │  ├─ libxcrypt/libcrypt1 @ 1:4.4.38-1
+   │  │  ├─ pam/libpam0g @ 1.7.0-5
+   │  │  └─ systemd/libsystemd0 @ 257.9-1~deb13u1
+   │  ├─ pam/libpam0g @ 1.7.0-5
+   │  │  ├─ audit/libaudit1 @ 1:4.0.2-2+b2
+   │  │  └─ debconf @ 1.5.91
+   │  └─ systemd/libsystemd0 @ 257.9-1~deb13u1
+   ├─ pam/libpam-modules-bin @ 1.7.0-5
+   ├─ pam/libpam-runtime @ 1.7.0-5
+   │  ├─ debconf @ 1.5.91
+   │  └─ pam/libpam-modules @ 1.7.0-5
+   ├─ pam/libpam0g @ 1.7.0-5
+   ├─ pcre2/libpcre2-8-0 @ 10.46-1~deb13u1
+   ├─ perl/perl-base @ 5.40.1-6
+   │  └─ libxcrypt/libcrypt1 @ 1:4.4.38-1
+   ├─ rust-sequoia-sqv/sqv @ 1.3.0-3
+   ├─ sed @ 4.9-2
+   │  ├─ acl/libacl1 @ 2.3.2-2+b1
+   │  └─ libselinux/libselinux1 @ 3.8.1-1
+   ├─ shadow/login.defs @ 1:4.17.4-2
+   ├─ shadow/passwd @ 1:4.17.4-2
+   │  ├─ acl/libacl1 @ 2.3.2-2+b1
+   │  ├─ attr/libattr1 @ 1:2.5.2-3
+   │  ├─ audit/libaudit1 @ 1:4.0.2-2+b2
+   │  ├─ base-passwd @ 3.6.7
+   │  ├─ libbsd/libbsd0 @ 0.12.2-2
+   │  ├─ libselinux/libselinux1 @ 3.8.1-1
+   │  ├─ libsemanage/libsemanage2 @ 3.8.1-1
+   │  ├─ libxcrypt/libcrypt1 @ 1:4.4.38-1
+   │  ├─ pam/libpam-modules @ 1.7.0-5
+   │  ├─ pam/libpam0g @ 1.7.0-5
+   │  └─ shadow/login.defs @ 1:4.17.4-2
+   ├─ sqlite3/libsqlite3-0 @ 3.46.1-7
+   ├─ systemd/libsystemd0 @ 257.9-1~deb13u1
+   ├─ systemd/libudev1 @ 257.9-1~deb13u1
+   ├─ sysvinit/sysvinit-utils @ 3.14-4
+   ├─ tar @ 1.35+dfsg-3.1
+   ├─ tzdata @ 2025b-4+deb13u1
+   │  └─ debconf @ 1.5.91
+   ├─ util-linux @ 2.41-5
+   │  ├─ libcap-ng/libcap-ng0 @ 0.8.5-4+b1
+   │  ├─ libselinux/libselinux1 @ 3.8.1-1
+   │  ├─ libxcrypt/libcrypt1 @ 1:4.4.38-1
+   │  ├─ ncurses/libtinfo6 @ 6.5+20250216-2
+   │  ├─ pam/libpam-modules @ 1.7.0-5
+   │  ├─ pam/libpam-runtime @ 1.7.0-5
+   │  ├─ pam/libpam0g @ 1.7.0-5
+   │  ├─ systemd/libsystemd0 @ 257.9-1~deb13u1
+   │  ├─ systemd/libudev1 @ 257.9-1~deb13u1
+   │  ├─ util-linux/libblkid1 @ 2.41-5
+   │  ├─ util-linux/liblastlog2-2 @ 2.41-5
+   │  ├─ util-linux/libmount1 @ 2.41-5
+   │  ├─ util-linux/libsmartcols1 @ 2.41-5
+   │  └─ util-linux/libuuid1 @ 2.41-5
+   ├─ util-linux/bsdutils @ 1:2.41-5
+   │  └─ systemd/libsystemd0 @ 257.9-1~deb13u1
+   ├─ util-linux/libblkid1 @ 2.41-5
+   ├─ util-linux/liblastlog2-2 @ 2.41-5
+   │  └─ sqlite3/libsqlite3-0 @ 3.46.1-7
+   ├─ util-linux/libmount1 @ 2.41-5
+   │  ├─ libselinux/libselinux1 @ 3.8.1-1
+   │  └─ util-linux/libblkid1 @ 2.41-5
+   ├─ util-linux/libsmartcols1 @ 2.41-5
+   ├─ util-linux/libuuid1 @ 2.41-5
+   ├─ util-linux/login @ 1:4.16.0-2+really2.41-5
+   │  ├─ audit/libaudit1 @ 1:4.0.2-2+b2
+   │  ├─ libxcrypt/libcrypt1 @ 1:4.4.38-1
+   │  ├─ pam/libpam-modules @ 1.7.0-5
+   │  ├─ pam/libpam-runtime @ 1.7.0-5
+   │  ├─ pam/libpam0g @ 1.7.0-5
+   │  └─ shadow/login.defs @ 1:4.17.4-2
+   ├─ util-linux/mount @ 2.41-5
+   │  ├─ libselinux/libselinux1 @ 3.8.1-1
+   │  ├─ util-linux/libblkid1 @ 2.41-5
+   │  ├─ util-linux/libmount1 @ 2.41-5
+   │  └─ util-linux/libsmartcols1 @ 2.41-5
+   ├─ xxhash/libxxhash0 @ 0.8.3-2
+   ├─ xz-utils/liblzma5 @ 5.8.1-1
+   └─ zlib/zlib1g @ 1:1.3.dfsg+really1.3.1-1+b1
+
+Testing denoland/deno:latest...
+
+✗ Low severity vulnerability found in util-linux/libblkid1
+  Description: Out-of-bounds Read
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-UTILLINUX-14200590
+  Introduced through: util-linux/libblkid1@2.41-5, util-linux/libmount1@2.41-5, util-linux@2.41-5, util-linux/mount@2.41-5, util-linux/liblastlog2-2@2.41-5, util-linux/libsmartcols1@2.41-5, util-linux/libuuid1@2.41-5, util-linux/bsdutils@1:2.41-5, util-linux/login@1:4.16.0-2+really2.41-5
+  From: util-linux/libblkid1@2.41-5
+  From: util-linux/libmount1@2.41-5 > util-linux/libblkid1@2.41-5
+  From: util-linux@2.41-5 > util-linux/libblkid1@2.41-5
+  and 15 more...
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in util-linux/libblkid1
+  Description: Information Exposure
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-UTILLINUX-5698535
+  Introduced through: util-linux/libblkid1@2.41-5, util-linux/libmount1@2.41-5, util-linux@2.41-5, util-linux/mount@2.41-5, util-linux/liblastlog2-2@2.41-5, util-linux/libsmartcols1@2.41-5, util-linux/libuuid1@2.41-5, util-linux/bsdutils@1:2.41-5, util-linux/login@1:4.16.0-2+really2.41-5
+  From: util-linux/libblkid1@2.41-5
+  From: util-linux/libmount1@2.41-5 > util-linux/libblkid1@2.41-5
+  From: util-linux@2.41-5 > util-linux/libblkid1@2.41-5
+  and 15 more...
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in tar
+  Description: CVE-2005-2541
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-TAR-5696683
+  Introduced through: tar@1.35+dfsg-3.1, dpkg@1.22.21
+  From: tar@1.35+dfsg-3.1
+  From: dpkg@1.22.21 > tar@1.35+dfsg-3.1
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in systemd/libsystemd0
+  Description: Link Following
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-SYSTEMD-5696564
+  Introduced through: systemd/libsystemd0@257.9-1~deb13u1, apt@3.0.3, coreutils@9.7-3, pam/libpam-modules@1.7.0-5, util-linux@2.41-5, util-linux/bsdutils@1:2.41-5, systemd/libudev1@257.9-1~deb13u1
+  From: systemd/libsystemd0@257.9-1~deb13u1
+  From: apt@3.0.3 > systemd/libsystemd0@257.9-1~deb13u1
+  From: coreutils@9.7-3 > systemd/libsystemd0@257.9-1~deb13u1
+  and 8 more...
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in systemd/libsystemd0
+  Description: Improper Validation of Integrity Check Value
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-SYSTEMD-5733389
+  Introduced through: systemd/libsystemd0@257.9-1~deb13u1, apt@3.0.3, coreutils@9.7-3, pam/libpam-modules@1.7.0-5, util-linux@2.41-5, util-linux/bsdutils@1:2.41-5, systemd/libudev1@257.9-1~deb13u1
+  From: systemd/libsystemd0@257.9-1~deb13u1
+  From: apt@3.0.3 > systemd/libsystemd0@257.9-1~deb13u1
+  From: coreutils@9.7-3 > systemd/libsystemd0@257.9-1~deb13u1
+  and 8 more...
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in systemd/libsystemd0
+  Description: Improper Validation of Integrity Check Value
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-SYSTEMD-5733399
+  Introduced through: systemd/libsystemd0@257.9-1~deb13u1, apt@3.0.3, coreutils@9.7-3, pam/libpam-modules@1.7.0-5, util-linux@2.41-5, util-linux/bsdutils@1:2.41-5, systemd/libudev1@257.9-1~deb13u1
+  From: systemd/libsystemd0@257.9-1~deb13u1
+  From: apt@3.0.3 > systemd/libsystemd0@257.9-1~deb13u1
+  From: coreutils@9.7-3 > systemd/libsystemd0@257.9-1~deb13u1
+  and 8 more...
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in systemd/libsystemd0
+  Description: Improper Validation of Integrity Check Value
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-SYSTEMD-5733401
+  Introduced through: systemd/libsystemd0@257.9-1~deb13u1, apt@3.0.3, coreutils@9.7-3, pam/libpam-modules@1.7.0-5, util-linux@2.41-5, util-linux/bsdutils@1:2.41-5, systemd/libudev1@257.9-1~deb13u1
+  From: systemd/libsystemd0@257.9-1~deb13u1
+  From: apt@3.0.3 > systemd/libsystemd0@257.9-1~deb13u1
+  From: coreutils@9.7-3 > systemd/libsystemd0@257.9-1~deb13u1
+  and 8 more...
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in sqlite3/libsqlite3-0
+  Description: CVE-2025-7709
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-SQLITE3-12549228
+  Introduced through: sqlite3/libsqlite3-0@3.46.1-7, util-linux/liblastlog2-2@2.41-5
+  From: sqlite3/libsqlite3-0@3.46.1-7
+  From: util-linux/liblastlog2-2@2.41-5 > sqlite3/libsqlite3-0@3.46.1-7
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in sqlite3/libsqlite3-0
+  Description: Memory Leak
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-SQLITE3-5696112
+  Introduced through: sqlite3/libsqlite3-0@3.46.1-7, util-linux/liblastlog2-2@2.41-5
+  From: sqlite3/libsqlite3-0@3.46.1-7
+  From: util-linux/liblastlog2-2@2.41-5 > sqlite3/libsqlite3-0@3.46.1-7
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in shadow/login.defs
+  Description: Access Restriction Bypass
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-SHADOW-5695385
+  Introduced through: shadow/login.defs@1:4.17.4-2, shadow/passwd@1:4.17.4-2, util-linux/login@1:4.16.0-2+really2.41-5
+  From: shadow/login.defs@1:4.17.4-2
+  From: shadow/passwd@1:4.17.4-2 > shadow/login.defs@1:4.17.4-2
+  From: util-linux/login@1:4.16.0-2+really2.41-5 > shadow/login.defs@1:4.17.4-2
+  and 1 more...
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in shadow/login.defs
+  Description: CVE-2024-56433
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-SHADOW-8551157
+  Introduced through: shadow/login.defs@1:4.17.4-2, shadow/passwd@1:4.17.4-2, util-linux/login@1:4.16.0-2+really2.41-5
+  From: shadow/login.defs@1:4.17.4-2
+  From: shadow/passwd@1:4.17.4-2 > shadow/login.defs@1:4.17.4-2
+  From: util-linux/login@1:4.16.0-2+really2.41-5 > shadow/login.defs@1:4.17.4-2
+  and 1 more...
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in perl/perl-base
+  Description: Link Following
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-PERL-5692251
+  Introduced through: perl/perl-base@5.40.1-6
+  From: perl/perl-base@5.40.1-6
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in ncurses/libtinfo6
+  Description: Out-of-Bounds
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-NCURSES-10378958
+  Introduced through: ncurses/libtinfo6@6.5+20250216-2, bash/bash@5.2.37-2+b5, ncurses/ncurses-bin@6.5+20250216-2, util-linux@2.41-5, ncurses/ncurses-base@6.5+20250216-2
+  From: ncurses/libtinfo6@6.5+20250216-2
+  From: bash/bash@5.2.37-2+b5 > ncurses/libtinfo6@6.5+20250216-2
+  From: ncurses/ncurses-bin@6.5+20250216-2 > ncurses/libtinfo6@6.5+20250216-2
+  and 3 more...
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in glibc/libc-bin
+  Description: Uncontrolled Recursion
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5680884
+  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
+  From: glibc/libc-bin@2.41-12
+  From: glibc/libc6@2.41-12
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in glibc/libc-bin
+  Description: Resource Management Errors
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681058
+  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
+  From: glibc/libc-bin@2.41-12
+  From: glibc/libc6@2.41-12
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in glibc/libc-bin
+  Description: Use of Insufficiently Random Values
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681145
+  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
+  From: glibc/libc-bin@2.41-12
+  From: glibc/libc6@2.41-12
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in glibc/libc-bin
+  Description: CVE-2019-1010023
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681177
+  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
+  From: glibc/libc-bin@2.41-12
+  From: glibc/libc6@2.41-12
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in glibc/libc-bin
+  Description: Uncontrolled Recursion
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681215
+  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
+  From: glibc/libc-bin@2.41-12
+  From: glibc/libc6@2.41-12
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in glibc/libc-bin
+  Description: Out-of-Bounds
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681241
+  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
+  From: glibc/libc-bin@2.41-12
+  From: glibc/libc6@2.41-12
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in glibc/libc-bin
+  Description: Information Exposure
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-GLIBC-5681256
+  Introduced through: glibc/libc-bin@2.41-12, glibc/libc6@2.41-12
+  From: glibc/libc-bin@2.41-12
+  From: glibc/libc6@2.41-12
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in coreutils
+  Description: Stack-based Buffer Overflow
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-COREUTILS-10259260
+  Introduced through: coreutils@9.7-3
+  From: coreutils@9.7-3
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in coreutils
+  Description: Race Condition
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-COREUTILS-5673914
+  Introduced through: coreutils@9.7-3
+  From: coreutils@9.7-3
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+✗ Low severity vulnerability found in apt/libapt-pkg7.0
+  Description: Improper Verification of Cryptographic Signature
+  Info: https://security.snyk.io/vuln/SNYK-DEBIAN13-APT-5675173
+  Introduced through: apt/libapt-pkg7.0@3.0.3, apt@3.0.3
+  From: apt/libapt-pkg7.0@3.0.3
+  From: apt@3.0.3 > apt/libapt-pkg7.0@3.0.3
+  From: apt@3.0.3
+  Image layer: Introduced by your base image (denoland/deno:latest)
+
+
+
+Organization:      frijolijo17
+Package manager:   deb
+Target file:       /home/jorge/Escritorio/4toCarrera/IV/obj3/Fermater/Imagenes_testing/Dockerfile_denoland_latest
+Project name:      docker-image|denoland/deno
+Docker image:      denoland/deno:latest
+Platform:          linux/amd64
+Target OS:         Debian GNU/Linux 13 (trixie)
+Base image:        denoland/deno:latest
+Licenses:          enabled
+
+Tested 78 dependencies for known issues, found 23 issues.
+
+Recommendations for your base image (denoland/deno:latest) are not available.
+See above for details and fixes on individual vulnerabilities
+
+Pro tip: use `--exclude-base-image-vulns` to exclude from display Docker base image vulnerabilities.
+
+Snyk found some vulnerabilities in your image applications (Snyk searches for these vulnerabilities by default). See https://snyk.co/app-vulns for more information.
+
+To remove these messages in the future, please run `snyk config set disableSuggestions=true`
+
+Learn more: https://docs.snyk.io/products/snyk-container/getting-around-the-snyk-container-ui/base-image-detection
+
+

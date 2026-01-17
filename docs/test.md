@@ -1,6 +1,6 @@
 ### Ecosistema para tests:
 
-Para el desarrollo del objetivo se precisa decidir las sigueintes herramientas de tests:
+Para el desarrollo del objetivo se precisa decidir las siguientes herramientas de test:
 
 1. **Aserciones**
 2. **Test runner**
